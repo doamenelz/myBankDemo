@@ -8,7 +8,6 @@
 
 import SwiftUI
 
-
 enum FontColors: String {
     case white = "white"
     case grey = "greyText"
@@ -17,11 +16,16 @@ enum FontColors: String {
 
 struct FontModifiers: View {
     var body: some View {
-        VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).modifier(H1(color: .purple))
-            Text("Hello, World!").modifier(H2(color: .grey))
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).modifier(H3(color: .grey))
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).modifier(H4(color: .grey))
+        ZStack {
+            Color("dark")
+            .edgesIgnoringSafeArea(.all)
+            VStack {
+                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).modifier(H1(color: .purple))
+                Text("Hello, World!").modifier(H2(color: .grey))
+                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).modifier(H3(color: .grey))
+                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).modifier(H4(color: .grey))
+                
+            }
         }
     }
 }
@@ -68,3 +72,9 @@ struct H4: ViewModifier {
     }
 
 }
+
+struct TextFieldLbl: ViewModifier {
+    func body(content: Content) -> some View {
+        content.font(.custom("Rubik-Regular", size: 12)).foregroundColor(Color("greyText"))
+    }}
+

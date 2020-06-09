@@ -27,6 +27,8 @@
 		724A9D63248F4D480020AF54 /* Rubik-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 724A9D57248F4D480020AF54 /* Rubik-BlackItalic.ttf */; };
 		724A9D64248F4D480020AF54 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 724A9D58248F4D480020AF54 /* Rubik-Regular.ttf */; };
 		724A9D65248F4D480020AF54 /* Rubik-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 724A9D59248F4D480020AF54 /* Rubik-BoldItalic.ttf */; };
+		724A9D68248F54B50020AF54 /* ButtonModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D67248F54B50020AF54 /* ButtonModifiers.swift */; };
+		724A9D6A248F66350020AF54 /* TextFieldModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D69248F66350020AF54 /* TextFieldModifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		724A9D58248F4D480020AF54 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-Regular.ttf"; sourceTree = "<group>"; };
 		724A9D59248F4D480020AF54 /* Rubik-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Rubik-BoldItalic.ttf"; sourceTree = "<group>"; };
 		724A9D66248F4DBC0020AF54 /* Averta-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Averta-SemiBold.ttf"; sourceTree = "<group>"; };
+		724A9D67248F54B50020AF54 /* ButtonModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifiers.swift; sourceTree = "<group>"; };
+		724A9D69248F66350020AF54 /* TextFieldModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 				724A9D4C248F4D480020AF54 /* averta */,
 				724A9D4F248F4D480020AF54 /* Rubik */,
 				724A9D49248F4B890020AF54 /* FontModifiers.swift */,
+				724A9D67248F54B50020AF54 /* ButtonModifiers.swift */,
+				724A9D69248F66350020AF54 /* TextFieldModifiers.swift */,
 			);
 			path = StyleGuide;
 			sourceTree = "<group>";
@@ -226,8 +232,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				724A9D68248F54B50020AF54 /* ButtonModifiers.swift in Sources */,
 				724A9D32248F46BE0020AF54 /* AppDelegate.swift in Sources */,
 				724A9D4A248F4B890020AF54 /* FontModifiers.swift in Sources */,
+				724A9D6A248F66350020AF54 /* TextFieldModifiers.swift in Sources */,
 				724A9D37248F46BE0020AF54 /* PlanBok_SwiftUI.xcdatamodeld in Sources */,
 				724A9D39248F46BE0020AF54 /* ContentView.swift in Sources */,
 				724A9D34248F46BE0020AF54 /* SceneDelegate.swift in Sources */,
