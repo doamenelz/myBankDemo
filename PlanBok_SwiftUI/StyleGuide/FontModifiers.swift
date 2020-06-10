@@ -12,6 +12,7 @@ enum FontColors: String {
     case white = "white"
     case grey = "greyText"
     case purple = "p1"
+    case tb4 = "tb4"
 }
 
 struct FontModifiers: View {
@@ -41,7 +42,7 @@ struct H1: ViewModifier {
     var color: FontColors
     
     func body(content: Content) -> some View {
-        content.font(.custom("Rubik-Medium", size: 40)).foregroundColor(Color(color.rawValue))
+        content.font(.custom("Rubik-Medium", size: 40)).foregroundColor(Color(color.rawValue)).lineLimit(5)
     }
 
 }

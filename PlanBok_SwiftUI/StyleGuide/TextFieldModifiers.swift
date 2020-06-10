@@ -8,6 +8,13 @@
 
 import SwiftUI
 
+enum IconsEnum: String {
+    case chevronDownCircle = "chevron.down.circle.fill"
+    case chevronDown = "chevron.down"
+    case exclaimation = "exclamationmark.triangle.fill"
+    
+}
+
 struct TextFieldModifiers: View {
     @State var text: String
     
@@ -16,7 +23,7 @@ struct TextFieldModifiers: View {
             Color("dark")
             .edgesIgnoringSafeArea(.all)
             VStack (spacing: 20)  {
-                TextFldWIcons(placeHolder: "Placeholder", textValue: text, label: "Text Field W Icons").frame(width: screenWidth - 38)
+                TextFldWIcons(placeHolder: "Placeholder", textValue: text, icon: IconsEnum.chevronDownCircle.rawValue, label: "Text Field W Icons").frame(width: screenWidth - 38)
                 TextFldNIcons(placeHolder: "Placeholder", textValue: text, label: "Text Field No Icons").frame(width: screenWidth - 38)
                 PasswordFld(placeHolder: "Placeholder", textValue: text, label: "Password").frame(width: screenWidth - 38)
             }
@@ -37,7 +44,10 @@ struct TextFldWIcons : View {
     
     @State var invalidField: Bool = true
     @State var startedTyping: Bool = true
+    @State var isSuccess: Bool = false
     
+    
+    @State var icon: String = IconsEnum.chevronDown.rawValue
     var label: String = "Label"
     
     var body: some View {
@@ -45,7 +55,7 @@ struct TextFldWIcons : View {
             Text(label).modifier(TextFieldLbl())
             
             ZStack {
-                Image("")
+                
                 TextField(placeHolder, text: $textValue)
                 .padding()
                     
@@ -55,6 +65,12 @@ struct TextFldWIcons : View {
                 )
                 .background(Color("darkTextFld"))
                     .cornerRadius(8)
+                
+                
+                Image(systemName: isSuccess ? icon : "")
+                .foregroundColor(Color("ctSuccess"))
+                    .padding(.leading, screenWidth - 100)
+                
             }
         }
         .modifier(TFMod())
