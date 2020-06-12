@@ -12,6 +12,8 @@ enum IconsEnum: String {
     case chevronDownCircle = "chevron.down.circle.fill"
     case chevronDown = "chevron.down"
     case exclaimation = "exclamationmark.triangle.fill"
+    case chevronLeft = "chevron.left"
+    case success = "checkmark.circle.fill"
     
 }
 
@@ -23,8 +25,8 @@ struct TextFieldModifiers: View {
             Color("dark")
             .edgesIgnoringSafeArea(.all)
             VStack (spacing: 20)  {
-                TextFldWIcons(placeHolder: "Placeholder", textValue: text, icon: IconsEnum.chevronDownCircle.rawValue, label: "Text Field W Icons").frame(width: screenWidth - 38)
-                TextFldNIcons(placeHolder: "Placeholder", textValue: text, label: "Text Field No Icons").frame(width: screenWidth - 38)
+                TextFldWIcons(placeHolder: "Placeholder", textValue: $text, icon: IconsEnum.chevronDownCircle.rawValue, label: "Text Field W Icons").frame(width: screenWidth - 38)
+                TextFldNIcons(placeHolder: "Placeholder", textValue: text, invalidField: false, label: "Text Field No Icons").frame(width: screenWidth - 38)
                 PasswordFld(placeHolder: "Placeholder", textValue: text, label: "Password").frame(width: screenWidth - 38)
             }
             
@@ -40,10 +42,10 @@ struct TextFieldModifiers_Previews: PreviewProvider {
 
 struct TextFldWIcons : View {
     @State var placeHolder: String
-    @State var textValue: String
+    @Binding var textValue: String
     
     @State var invalidField: Bool = true
-    @State var startedTyping: Bool = true
+    @State var startedTyping: Bool = false
     @State var isSuccess: Bool = false
     
     
@@ -54,24 +56,22 @@ struct TextFldWIcons : View {
         VStack (alignment: .leading) {
             Text(label).modifier(TextFieldLbl())
             
-            ZStack {
+            HStack {
                 
                 TextField(placeHolder, text: $textValue)
-                .padding()
-                    
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(startedTyping ? Color("p1") : Color("dark"), lineWidth: 1)
-                )
-                .background(Color("darkTextFld"))
-                    .cornerRadius(8)
-                
-                
+                    .multilineTextAlignment(.leading)
+                    .padding()
                 Image(systemName: isSuccess ? icon : "")
-                .foregroundColor(Color("ctSuccess"))
-                    .padding(.leading, screenWidth - 100)
-                
+                    .foregroundColor(Color("ctSuccess"))
+                    .frame(width: 15, height: 15)
+                    .padding(.horizontal, 15)
             }
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(isSuccess ? Color("darkTextFld") : Color("ctError"), lineWidth: 1)
+            )
+            .background(Color("darkTextFld"))
+            .cornerRadius(8)
         }
         .modifier(TFMod())
         
@@ -83,8 +83,8 @@ struct TextFldNIcons : View {
     @State var placeHolder: String
     @State var textValue: String
     
-    @State var invalidField: Bool = true
-    @State var startedTyping: Bool = false
+    @State var invalidField: Bool
+    //@State var startedTyping: Bool = false
     
     var label: String = "Label"
     
@@ -92,11 +92,37 @@ struct TextFldNIcons : View {
         VStack (alignment: .leading) {
             Text(label).modifier(TextFieldLbl())
             
-            TextField(placeHolder, text: $textValue)
+            TextField(placeHolder, text: $textValue, onEditingChanged: { (changed) in
+                if changed {
+                    
+                } else {
+                    if self.textValue == "" {
+                        self.invalidField = true
+                        print("New field typing")
+                        
+                    } else {
+                        self.invalidField = false
+                        print("New field ended")
+                    }
+                }
+                
+            }, onCommit: {
+                
+                if self.textValue == "" {
+                    self.invalidField = true
+                    print("New field typing")
+                    
+                } else {
+                    self.invalidField = false
+                    print("New field ended")
+                }
+                
+            })
+                .multilineTextAlignment(.leading)
             .padding()
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
-                    .stroke(startedTyping ? Color("p1") : Color("dark"), lineWidth: 1)
+                    .stroke(invalidField ? Color("ctError") : Color("darkTextFld"), lineWidth: 1)
             )
             .background(Color("darkTextFld"))
             .cornerRadius(8)
@@ -107,11 +133,29 @@ struct TextFldNIcons : View {
     }
 }
 
+struct TxtF: ViewModifier {
+
+    var invalidField: Bool
+    //var color: FontColors
+    func body(content: Content) -> some View {
+        content.multilineTextAlignment(.leading)
+        .padding()
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(invalidField ? Color("ctError") : Color("darkTextFld"), lineWidth: 1)
+        )
+        .background(Color("darkTextFld"))
+        .cornerRadius(8)
+        .modifier(TFMod())
+    }
+
+}
+
 struct PasswordFld : View {
     @State var placeHolder: String
     @State var textValue: String
     
-    @State var invalidField: Bool = true
+    @State var invalidField: Bool = false
     @State var startedTyping: Bool = false
     
     var label: String = "Label"
@@ -121,10 +165,11 @@ struct PasswordFld : View {
             Text(label).modifier(TextFieldLbl())
             
             SecureField(placeHolder, text: $textValue)
+                .multilineTextAlignment(.leading)
             .padding()
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
-                    .stroke(startedTyping ? Color("p1") : Color("dark"), lineWidth: 1)
+                    .stroke(invalidField ? Color("ctError") : Color("dark"), lineWidth: 1)
             )
             .background(Color("darkTextFld"))
             .cornerRadius(8)

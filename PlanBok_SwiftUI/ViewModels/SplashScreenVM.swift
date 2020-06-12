@@ -10,10 +10,21 @@ import SwiftUI
 
 struct SplashScreen1: View {
     
+    init() {
+        UINavigationBar.appearance().isUserInteractionEnabled = false
+        UINavigationBar.appearance().backgroundColor = .clear
+        UINavigationBar.appearance().barTintColor = .blue
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().tintColor = .clear
+    }
+    
     var pageModel = Pages.all()
     
-    @State var currentPage: Int = 0
+    @State var goToStartup: Bool = false
+    @State var splashCompleted: Bool = false
     
+    @State var currentPage: Int = 0
     @State var width1: CGFloat = 35
     @State var width2: CGFloat = 10
     @State var width3: CGFloat = 10
@@ -21,7 +32,7 @@ struct SplashScreen1: View {
     @State var page2Selected: String = FontColors.tb4.rawValue
     @State var page3Selected: String = FontColors.tb4.rawValue
     
-    func changePageControl () {
+    private func changePageControl () {
         
         let pageControlModel = PageControl(width1: 35, width2: 10, width3: 10).changePageControl(currentPage: currentPage)
         
@@ -34,79 +45,122 @@ struct SplashScreen1: View {
  
     }
     
+    private func showNextSlide () {
+        if self.currentPage <= 1  {
+            self.currentPage += 1
+            self.changePageControl()
+        } else {
+            self.splashCompleted.toggle()
+        }
+    }
+    
     var body: some View {
-        ZStack {
-            Color("dark")
-                .edgesIgnoringSafeArea(.all)
-            Image("Floater")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: screenWidth)
-                .opacity(0.3)
-                .offset(x: screenWidth / 2, y: -screenHeight / 3 )
-            
-            SP1(icon: pageModel[currentPage].icon, title: pageModel[currentPage].title, subtitle: pageModel[currentPage].subtitle)
-                .frame(width: screenWidth - 38)
-                .animation(Animation.easeOut(duration: 0.2))
-                .minimumScaleFactor(0.5)
-
-            HStack {
-                Button(action: {
-                    
-                    if self.currentPage <= 1  {
-                        self.currentPage += 1
-                        self.changePageControl()
-                        //self.pageControlModel.changePageControl(currentPage: self.currentPage)
-                    } else {
-                        self.currentPage = 0
-                        //self.pageControlModel.changePageControl(currentPage: self.currentPage)
-                        self.changePageControl()
+        
+        NavigationView {
+            ZStack {
+                BackGround(image: "FloaterA")
+                
+                SP1(icon: pageModel[currentPage].icon, title: pageModel[currentPage].title, subtitle: pageModel[currentPage].subtitle).offset(y: -50)
+                    .gesture(
+                           DragGesture(minimumDistance: 50)
+                               .onEnded { _ in
+                                if self.currentPage <= 1  {
+                                    self.currentPage += 1
+                                    self.changePageControl()
+                                } else {
+                                    self.currentPage = 0
+                                    self.changePageControl()
+                                }
+                               }
+                       )
+                        
+                HStack {
+                    HStack {
+                        Color(page1Selected)
+                            .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
+                            .frame(width: width1, height: 5)
+                        Color(page2Selected)
+                            .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
+                            .frame(width: width2, height: 5)
+                        Color(page3Selected)
+                            .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
+                            .frame(width: width3, height: 5)
                     }
                     
-                }) {
-                    Text("Next").modifier(H4(color: .white))
+                    Spacer()
+                    
+                    Button(action: {
+                        self.showNextSlide()
+                    }) {
+                        if currentPage == 2 {
+                            NavigationLink(destination: StartUpPage()) {
+                                Text("Lets get started").modifier(H4(color: .white))
+                            }
+                            
+                        } else {
+                            Text("Next").modifier(H4(color: .white))
+                        }
+                    }
+                    
                 }
+                .padding(.horizontal, 38)
+                .offset(y: screenHeight / 3)
                 
-                Spacer()
-                
-                HStack {
-                    Color(page1Selected)
-                    .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
-                    .frame(width: width1, height: 10)
-                   Color(page2Selected)
-                    .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
-                    .frame(width: width2, height: 10)
-                    Color(page3Selected)
-                    .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
-                    .frame(width: width3, height: 10)
-                }
-                
-                Spacer()
-                
-                Button(action: {
-                   //Go to Login Screen
-                    self.currentPage += 1
-                }) {
-                    Text("Skip").modifier(H4(color: .grey))
-                }
             }
-            .padding(.horizontal, 38)
-            .offset(y: screenHeight / 3)
-            
         }
+        
      }
 }
 
 struct SplashScreen1_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-        //SplashScreen1().previewDevice("iPhone 11 Pro Max")
-        SplashScreen1().previewDevice("iPhone 11 Pro")
+            SplashScreen1().previewDevice("iPhone 11 Pro Max")
+            SplashScreen1().previewDevice("iPhone 11 Pro")
             SplashScreen1().previewDevice("iPhone 8")
         }
         
     }
 }
+
+
+//MARK: - Subviews
+struct SP1: View {
+
+    var icon: String = "IconSmile"
+    var title: String = "Send money quickly to friends"
+    var subtitle: String = "PlanBok provides a quick way to send funds to friends"
+
+    var body: some View {
+        VStack (alignment: .leading, spacing: 20) {
+            Image(icon)
+                .animation(.spring(response: 0.8, dampingFraction: 0.6, blendDuration: 0))
+            Text(title).modifier(H1(color: .white))
+            Text(subtitle).modifier(H3(color: .grey))
+        }
+        .frame(width: screenWidth - 76)
+    
+
+    }
+}
+
+struct BackGround: View {
+    
+    var image: String = "Floater2"
+    var body: some View {
+        ZStack {
+            Color("dark")
+                .edgesIgnoringSafeArea(.all)
+            Image(image)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: screenWidth)
+            .offset(y: -screenHeight / 3 )
+        }
+        
+    }
+}
+
 
 
 

@@ -31,7 +31,7 @@ extension Pages {
       
         return [
             Pages(icon: "IconSmile", title: "Send Money Quickly to friends", subtitle: "PlanBok provides a quick way to send funds to friends"),
-            Pages(icon: "IconDivide", title: "Real-Time money transfers", subtitle: "E-Banking Transfers made easy"),
+            Pages(icon: "IconDivide", title: "Real time money transfers", subtitle: "E-Banking Transfers made easy"),
             Pages(icon: "IconStopWatch", title: "Get Special discounts to your favorite stores", subtitle: "From all retail stores, making shopping easy")
         
         ]

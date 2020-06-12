@@ -13,6 +13,15 @@ enum FontColors: String {
     case grey = "greyText"
     case purple = "p1"
     case tb4 = "tb4"
+    case tb6 = "tb6"
+}
+
+class FontHelper {
+    
+    static func textSize(textStyle: UIFont.TextStyle) -> CGFloat {
+       return UIFont.preferredFont(forTextStyle: textStyle).pointSize
+    }
+    
 }
 
 struct FontModifiers: View {
@@ -25,6 +34,7 @@ struct FontModifiers: View {
                 Text("Hello, World!").modifier(H2(color: .grey))
                 Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).modifier(H3(color: .grey))
                 Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).modifier(H4(color: .grey))
+                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/).modifier(H6(color: .grey))
                 
             }
         }
@@ -39,19 +49,32 @@ struct FontModifiers_Previews: PreviewProvider {
 
 
 struct H1: ViewModifier {
+    
+    let fontHlper = FontHelper()
+    
+    func textSize(textStyle: UIFont.TextStyle) -> CGFloat {
+       return UIFont.preferredFont(forTextStyle: textStyle).pointSize
+    }
+    
     var color: FontColors
     
     func body(content: Content) -> some View {
-        content.font(.custom("Rubik-Medium", size: 40)).foregroundColor(Color(color.rawValue)).lineLimit(5)
+        content.font(.custom("Rubik-Medium", size: textSize(textStyle: .largeTitle)))
+            .foregroundColor(Color(color.rawValue))
+            //.frame(maxWidth: .infinity)
+            //.font(.system(.title))
+        
     }
 
 }
 
 struct H2: ViewModifier {
 
+    //let fontHlper = FontHelper()
+    
     var color: FontColors
     func body(content: Content) -> some View {
-        content.font(.custom("Rubik-Medium", size: 32)).foregroundColor(Color(color.rawValue))
+        content.font(.custom("Rubik-Medium", size: 28)).foregroundColor(Color(color.rawValue))
     }
 
 }
@@ -66,8 +89,24 @@ struct H3: ViewModifier {
 }
 
 struct H4: ViewModifier {
+    
+    @Environment(\.sizeCategory) var sizeCategory
+    
+    
 
     var color: FontColors
+    func body(content: Content) -> some View {
+        
+        
+        content.font(.custom("Rubik-Regular", size: 20)).foregroundColor(Color(color.rawValue))
+    }
+
+}
+
+struct H6: ViewModifier {
+
+    var color: FontColors
+    
     func body(content: Content) -> some View {
         content.font(.custom("Rubik-Regular", size: 18)).foregroundColor(Color(color.rawValue))
     }
@@ -75,7 +114,13 @@ struct H4: ViewModifier {
 }
 
 struct TextFieldLbl: ViewModifier {
+    
+    var color: String = "greyText"
     func body(content: Content) -> some View {
-        content.font(.custom("Rubik-Regular", size: 12)).foregroundColor(Color("greyText"))
-    }}
+        content.font(.custom("Rubik-Regular", size: 12)).foregroundColor(Color(color))
+    }
+    
+}
+
+
 

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		722918202492E7C200E1B9C2 /* PlayHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229181F2492E7C100E1B9C2 /* PlayHouse.swift */; };
+		722918222493107D00E1B9C2 /* KeyboardHlpr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722918212493107C00E1B9C2 /* KeyboardHlpr.swift */; };
+		722918262493FFFF00E1B9C2 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722918252493FFFF00E1B9C2 /* Home.swift */; };
 		724A9D32248F46BE0020AF54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D31248F46BE0020AF54 /* AppDelegate.swift */; };
 		724A9D34248F46BE0020AF54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D33248F46BE0020AF54 /* SceneDelegate.swift */; };
 		724A9D37248F46BE0020AF54 /* PlanBok_SwiftUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D35248F46BE0020AF54 /* PlanBok_SwiftUI.xcdatamodeld */; };
@@ -33,9 +36,20 @@
 		724A9D7024907D740020AF54 /* SplashScreen1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D6F24907D740020AF54 /* SplashScreen1.swift */; };
 		724A9D73249092310020AF54 /* SplashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D72249092310020AF54 /* SplashModel.swift */; };
 		724A9D76249097930020AF54 /* SplashScreenVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D75249097930020AF54 /* SplashScreenVM.swift */; };
+		724A9D792490B1FB0020AF54 /* StartUpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D782490B1FB0020AF54 /* StartUpPage.swift */; };
+		724A9D7B249148E20020AF54 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D7A249148E20020AF54 /* LoginPage.swift */; };
+		724A9D7E2491842F0020AF54 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D7D2491842F0020AF54 /* Registration.swift */; };
+		724A9D8024918AA60020AF54 /* OTPVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D7F24918AA60020AF54 /* OTPVerification.swift */; };
+		724A9D822491C7AA0020AF54 /* SetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D812491C7AA0020AF54 /* SetPassword.swift */; };
+		724A9D842491CEF50020AF54 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D832491CEF50020AF54 /* ForgotPassword.swift */; };
+		724A9D872491DAA40020AF54 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D862491DAA40020AF54 /* Constants.swift */; };
+		724A9D892491DF280020AF54 /* Completion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D882491DF280020AF54 /* Completion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7229181F2492E7C100E1B9C2 /* PlayHouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayHouse.swift; sourceTree = "<group>"; };
+		722918212493107C00E1B9C2 /* KeyboardHlpr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHlpr.swift; sourceTree = "<group>"; };
+		722918252493FFFF00E1B9C2 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		724A9D2E248F46BE0020AF54 /* PlanBok_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanBok_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		724A9D31248F46BE0020AF54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		724A9D33248F46BE0020AF54 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +79,14 @@
 		724A9D6F24907D740020AF54 /* SplashScreen1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen1.swift; sourceTree = "<group>"; };
 		724A9D72249092310020AF54 /* SplashModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashModel.swift; sourceTree = "<group>"; };
 		724A9D75249097930020AF54 /* SplashScreenVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenVM.swift; sourceTree = "<group>"; };
+		724A9D782490B1FB0020AF54 /* StartUpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpPage.swift; sourceTree = "<group>"; };
+		724A9D7A249148E20020AF54 /* LoginPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		724A9D7D2491842F0020AF54 /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
+		724A9D7F24918AA60020AF54 /* OTPVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerification.swift; sourceTree = "<group>"; };
+		724A9D812491C7AA0020AF54 /* SetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPassword.swift; sourceTree = "<group>"; };
+		724A9D832491CEF50020AF54 /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
+		724A9D862491DAA40020AF54 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		724A9D882491DF280020AF54 /* Completion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Completion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +100,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		722918232493FDAF00E1B9C2 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		722918242493FFEE00E1B9C2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				722918252493FFFF00E1B9C2 /* Home.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		724A9D25248F46BE0020AF54 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +134,7 @@
 		724A9D30248F46BE0020AF54 /* PlanBok_SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				724A9D852491DA720020AF54 /* Utils */,
 				724A9D742490977D0020AF54 /* ViewModels */,
 				724A9D712490920D0020AF54 /* Models */,
 				724A9D6D24907D560020AF54 /* Views */,
@@ -164,6 +202,10 @@
 		724A9D6D24907D560020AF54 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				722918242493FFEE00E1B9C2 /* Home */,
+				722918232493FDAF00E1B9C2 /* Cards */,
+				724A9D772490B1D60020AF54 /* Login */,
+				724A9D7C249184040020AF54 /* Registration */,
 				724A9D6E24907D5E0020AF54 /* SplashScreens */,
 			);
 			path = Views;
@@ -191,6 +233,37 @@
 				724A9D75249097930020AF54 /* SplashScreenVM.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		724A9D772490B1D60020AF54 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				724A9D782490B1FB0020AF54 /* StartUpPage.swift */,
+				724A9D7A249148E20020AF54 /* LoginPage.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		724A9D7C249184040020AF54 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				724A9D7D2491842F0020AF54 /* Registration.swift */,
+				724A9D7F24918AA60020AF54 /* OTPVerification.swift */,
+				724A9D812491C7AA0020AF54 /* SetPassword.swift */,
+				724A9D832491CEF50020AF54 /* ForgotPassword.swift */,
+				724A9D882491DF280020AF54 /* Completion.swift */,
+				7229181F2492E7C100E1B9C2 /* PlayHouse.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		724A9D852491DA720020AF54 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				724A9D862491DAA40020AF54 /* Constants.swift */,
+				722918212493107C00E1B9C2 /* KeyboardHlpr.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,15 +351,26 @@
 			files = (
 				724A9D6C249078690020AF54 /* Playground.swift in Sources */,
 				724A9D7024907D740020AF54 /* SplashScreen1.swift in Sources */,
+				722918222493107D00E1B9C2 /* KeyboardHlpr.swift in Sources */,
+				724A9D7E2491842F0020AF54 /* Registration.swift in Sources */,
 				724A9D68248F54B50020AF54 /* ButtonModifiers.swift in Sources */,
 				724A9D32248F46BE0020AF54 /* AppDelegate.swift in Sources */,
 				724A9D76249097930020AF54 /* SplashScreenVM.swift in Sources */,
 				724A9D4A248F4B890020AF54 /* FontModifiers.swift in Sources */,
+				724A9D7B249148E20020AF54 /* LoginPage.swift in Sources */,
+				722918202492E7C200E1B9C2 /* PlayHouse.swift in Sources */,
 				724A9D6A248F66350020AF54 /* TextFieldModifiers.swift in Sources */,
+				724A9D8024918AA60020AF54 /* OTPVerification.swift in Sources */,
+				724A9D892491DF280020AF54 /* Completion.swift in Sources */,
 				724A9D73249092310020AF54 /* SplashModel.swift in Sources */,
+				722918262493FFFF00E1B9C2 /* Home.swift in Sources */,
+				724A9D822491C7AA0020AF54 /* SetPassword.swift in Sources */,
 				724A9D37248F46BE0020AF54 /* PlanBok_SwiftUI.xcdatamodeld in Sources */,
 				724A9D39248F46BE0020AF54 /* ContentView.swift in Sources */,
+				724A9D792490B1FB0020AF54 /* StartUpPage.swift in Sources */,
+				724A9D842491CEF50020AF54 /* ForgotPassword.swift in Sources */,
 				724A9D34248F46BE0020AF54 /* SceneDelegate.swift in Sources */,
+				724A9D872491DAA40020AF54 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,6 +511,7 @@
 				DEVELOPMENT_TEAM = K25Y5MTHV5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PlanBok_SwiftUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -447,6 +532,7 @@
 				DEVELOPMENT_TEAM = K25Y5MTHV5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = PlanBok_SwiftUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
