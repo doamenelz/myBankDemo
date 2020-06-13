@@ -14,6 +14,8 @@ enum FontColors: String {
     case purple = "p1"
     case tb4 = "tb4"
     case tb6 = "tb6"
+    case credit = "ctSuccess"
+    case debit = "ctError"
 }
 
 class FontHelper {
