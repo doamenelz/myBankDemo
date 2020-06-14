@@ -115,6 +115,16 @@ struct H6: ViewModifier {
 
 }
 
+struct H7: ViewModifier {
+
+    var color: FontColors
+    
+    func body(content: Content) -> some View {
+        content.font(.custom("Rubik-Regular", size: 16)).foregroundColor(Color(color.rawValue))
+    }
+
+}
+
 struct TextFieldLbl: ViewModifier {
     
     var color: String = "greyText"

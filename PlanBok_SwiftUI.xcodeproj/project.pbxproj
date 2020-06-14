@@ -11,6 +11,11 @@
 		722918222493107D00E1B9C2 /* KeyboardHlpr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722918212493107C00E1B9C2 /* KeyboardHlpr.swift */; };
 		722918262493FFFF00E1B9C2 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722918252493FFFF00E1B9C2 /* Home.swift */; };
 		7229182824947E1000E1B9C2 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229182724947E0F00E1B9C2 /* Menu.swift */; };
+		7229182A2494933D00E1B9C2 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722918292494933C00E1B9C2 /* ViewRouter.swift */; };
+		7229182C24949A1900E1B9C2 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229182B24949A1900E1B9C2 /* RootView.swift */; };
+		7229182F249548C500E1B9C2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229182E249548C400E1B9C2 /* Settings.swift */; };
+		7229183124957FD800E1B9C2 /* IconModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229183024957FD800E1B9C2 /* IconModifiers.swift */; };
+		72291833249596BF00E1B9C2 /* MyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72291832249596BF00E1B9C2 /* MyProfile.swift */; };
 		724A9D32248F46BE0020AF54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D31248F46BE0020AF54 /* AppDelegate.swift */; };
 		724A9D34248F46BE0020AF54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D33248F46BE0020AF54 /* SceneDelegate.swift */; };
 		724A9D37248F46BE0020AF54 /* PlanBok_SwiftUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D35248F46BE0020AF54 /* PlanBok_SwiftUI.xcdatamodeld */; };
@@ -52,6 +57,11 @@
 		722918212493107C00E1B9C2 /* KeyboardHlpr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHlpr.swift; sourceTree = "<group>"; };
 		722918252493FFFF00E1B9C2 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		7229182724947E0F00E1B9C2 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		722918292494933C00E1B9C2 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		7229182B24949A1900E1B9C2 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		7229182E249548C400E1B9C2 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		7229183024957FD800E1B9C2 /* IconModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconModifiers.swift; sourceTree = "<group>"; };
+		72291832249596BF00E1B9C2 /* MyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfile.swift; sourceTree = "<group>"; };
 		724A9D2E248F46BE0020AF54 /* PlanBok_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanBok_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		724A9D31248F46BE0020AF54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		724A9D33248F46BE0020AF54 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +127,15 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		7229182D249548A300E1B9C2 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				7229182E249548C400E1B9C2 /* Settings.swift */,
+				72291832249596BF00E1B9C2 /* MyProfile.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		724A9D25248F46BE0020AF54 = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +189,7 @@
 				724A9D49248F4B890020AF54 /* FontModifiers.swift */,
 				724A9D67248F54B50020AF54 /* ButtonModifiers.swift */,
 				724A9D69248F66350020AF54 /* TextFieldModifiers.swift */,
+				7229183024957FD800E1B9C2 /* IconModifiers.swift */,
 			);
 			path = StyleGuide;
 			sourceTree = "<group>";
@@ -204,12 +224,14 @@
 		724A9D6D24907D560020AF54 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7229182D249548A300E1B9C2 /* Settings */,
 				722918242493FFEE00E1B9C2 /* Home */,
 				722918232493FDAF00E1B9C2 /* Cards */,
 				724A9D772490B1D60020AF54 /* Login */,
 				724A9D7C249184040020AF54 /* Registration */,
 				724A9D6E24907D5E0020AF54 /* SplashScreens */,
 				7229182724947E0F00E1B9C2 /* Menu.swift */,
+				7229182B24949A1900E1B9C2 /* RootView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -234,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				724A9D75249097930020AF54 /* SplashScreenVM.swift */,
+				722918292494933C00E1B9C2 /* ViewRouter.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -354,8 +377,10 @@
 			files = (
 				724A9D6C249078690020AF54 /* Playground.swift in Sources */,
 				724A9D7024907D740020AF54 /* SplashScreen1.swift in Sources */,
+				7229182F249548C500E1B9C2 /* Settings.swift in Sources */,
 				722918222493107D00E1B9C2 /* KeyboardHlpr.swift in Sources */,
 				724A9D7E2491842F0020AF54 /* Registration.swift in Sources */,
+				7229183124957FD800E1B9C2 /* IconModifiers.swift in Sources */,
 				724A9D68248F54B50020AF54 /* ButtonModifiers.swift in Sources */,
 				724A9D32248F46BE0020AF54 /* AppDelegate.swift in Sources */,
 				724A9D76249097930020AF54 /* SplashScreenVM.swift in Sources */,
@@ -367,6 +392,7 @@
 				724A9D892491DF280020AF54 /* Completion.swift in Sources */,
 				724A9D73249092310020AF54 /* SplashModel.swift in Sources */,
 				7229182824947E1000E1B9C2 /* Menu.swift in Sources */,
+				7229182A2494933D00E1B9C2 /* ViewRouter.swift in Sources */,
 				722918262493FFFF00E1B9C2 /* Home.swift in Sources */,
 				724A9D822491C7AA0020AF54 /* SetPassword.swift in Sources */,
 				724A9D37248F46BE0020AF54 /* PlanBok_SwiftUI.xcdatamodeld in Sources */,
@@ -374,7 +400,9 @@
 				724A9D792490B1FB0020AF54 /* StartUpPage.swift in Sources */,
 				724A9D842491CEF50020AF54 /* ForgotPassword.swift in Sources */,
 				724A9D34248F46BE0020AF54 /* SceneDelegate.swift in Sources */,
+				72291833249596BF00E1B9C2 /* MyProfile.swift in Sources */,
 				724A9D872491DAA40020AF54 /* Constants.swift in Sources */,
+				7229182C24949A1900E1B9C2 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

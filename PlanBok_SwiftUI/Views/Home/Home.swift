@@ -10,6 +10,14 @@ import SwiftUI
 
 struct Home: View {
     
+    @Environment(\.viewController) private var viewControllerHolder: ViewControllerHolder
+    private var viewController: UIViewController? {
+     self.viewControllerHolder.value
+    }
+    
+    @EnvironmentObject var viewRouter: ViewRouter
+    
+    
     let cards = CardM.all()
     let transactions = Transaction.all()
     
@@ -25,7 +33,7 @@ struct Home: View {
                             Text("My Cards").modifier(H3(color: .white))
                             Spacer()
                             Button(action: {
-                                
+                                self.viewRouter.currentPage = .menu
                             }) {
                                 Image("Add").foregroundColor(Color("p1"))//.renderingMode(.original)
                             }
@@ -39,7 +47,14 @@ struct Home: View {
                             HStack (spacing: 20) {
                                 ForEach(cards) { card in
                                     
-                                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                                    Button(action: {
+                                        print("Menu Pressed")
+                                        //self.viewRouter.currentPage = .menu
+                                        
+                                        self.viewController?.present(presentationStyle: .overCurrentContext) {
+                                            Menu()
+                                        }
+                                    }) {
                                         Card(card: card)
                                         .frame(width: screenWidth - 60)
                                     }
@@ -65,9 +80,9 @@ struct Home: View {
                             
                             //Summary
                             HStack  {
-                                ThisMonthSummaryCard(type: SummaryType.expense.rawValue, amount: -120000000)
+                                ThisMonthSummaryCard(type: SummaryType.expense.rawValue, amount: -120000)
                                 Spacer()
-                                ThisMonthSummaryCard(type: SummaryType.income.rawValue, amount: 12000000).allowsTightening(true)
+                                ThisMonthSummaryCard(type: SummaryType.income.rawValue, amount: 12000).allowsTightening(true)
                             }.padding(.horizontal, K.CustomUIConstraints.hPadding)
                         }.offset(y: -30)
                         
@@ -106,9 +121,9 @@ struct Home: View {
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            Home().previewDevice("iPhone 8")
-            Home().previewDevice("iPhone 11")
-            Home().previewDevice("iPhone 11 Pro Max")
+            Home().previewDevice("iPhone 8").environmentObject(ViewRouter())
+            //Home().previewDevice("iPhone 11")
+            //Home().previewDevice("iPhone 11 Pro Max")
             //Home().previewDevice("iPad Pro (12.9-inch) (4th generation)")
         }
         
@@ -118,6 +133,13 @@ struct Home_Previews: PreviewProvider {
 
 ///Main Navigation View
 struct MainNavigation: View {
+    @Environment(\.viewController) private var viewControllerHolder: ViewControllerHolder
+    private var viewController: UIViewController? {
+     self.viewControllerHolder.value
+    }
+    
+    @EnvironmentObject var viewRouter: ViewRouter
+    
     var header: String = "Wallet"
     var icon: String = "Menu"
     var leftIcon: String = "Notifications"
@@ -130,10 +152,21 @@ struct MainNavigation: View {
             Spacer()
             Text(header).modifier(H4(color: .white))
             Spacer()
-            Image(icon)
+            Button(action: {
+                print("Menu Pressed")
+                //self.viewRouter.currentPage = .menu
+                
+                self.viewController?.present(presentationStyle: .fullScreen) {
+                    Menu()
+                }
+            }) {
+                Image(icon)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: K.CustomUIConstraints.menuIconFrame)
+                    .foregroundColor(.white)
+            }
+
             
         }.padding(.horizontal, 30)
         .padding(.top)

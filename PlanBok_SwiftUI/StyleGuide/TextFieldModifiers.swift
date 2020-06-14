@@ -8,14 +8,6 @@
 
 import SwiftUI
 
-enum IconsEnum: String {
-    case chevronDownCircle = "chevron.down.circle.fill"
-    case chevronDown = "chevron.down"
-    case exclaimation = "exclamationmark.triangle.fill"
-    case chevronLeft = "chevron.left"
-    case success = "checkmark.circle.fill"
-    
-}
 
 struct TextFieldModifiers: View {
     @State var text: String

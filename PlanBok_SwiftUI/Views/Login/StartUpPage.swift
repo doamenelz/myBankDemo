@@ -15,7 +15,7 @@ struct StartUpPage: View {
         self.viewControllerHolder.value
        }
     
-    
+    //@ObservedObject var viewRouter: ViewRouter
     //@State var showLogin: Bool = true
     
     var body: some View {
