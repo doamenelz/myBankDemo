@@ -13,18 +13,15 @@ struct IconModifiers: View {
         ZStack {
             BackGround()
             VStack (spacing: 20) {
-                IconWrapper(icon: .iconShield)
-                IconWrapper(icon: .cards)
-                IconWrapper(icon: .notifications)
-                IconWrapper(icon: .support)
-                Icons(icon: .clipBoard)
-                Icons(icon: .bell)
-                Icons(icon: .chat)
-                Icons(icon: .creditcard)
-                Icons(icon: .globe)
-                
-                
-                //IconWrapper(icon: .iconShield)
+                IconsWrapped_SF(icon: .iconShield)
+                IconsWrapped_SF(icon: .cards)
+                IconsWrapped_SF(icon: .notifications)
+                IconsWrapped_SF(icon: .support)
+                IconsWrapped_Custom(icon: .clipBoard)
+                IconsWrapped_Custom(icon: .bell)
+                IconsWrapped_Custom(icon: .chat)
+                IconsWrapped_Custom(icon: .creditcard)
+                IconsWrapped_Custom(icon: .globe)
                 
             }
         }
@@ -37,8 +34,9 @@ struct IconModifiers_Previews: PreviewProvider {
     }
 }
 
-struct IconWrapper : View {
-    var icon: SystemIcons
+///SF Icons wrapped with rectangle border
+struct IconsWrapped_SF : View {
+    var icon: SFIcons
     var body: some View {
         Image(systemName: icon.rawValue)
             .foregroundColor(Color("p1"))
@@ -51,8 +49,9 @@ struct IconWrapper : View {
     }
 }
 
-struct Icons : View {
-    var icon: CustomIconsUnwrapped
+///Custom Icons wrapped with rectangle border
+struct IconsWrapped_Custom : View {
+    var icon: CustomSymbols
     var body: some View {
         Image(icon.rawValue)
             .renderingMode(.original)
@@ -64,20 +63,13 @@ struct Icons : View {
                 .frame(width: 40, height: 40)
                 .padding()
                 
-                
         )
     }
 }
 
-///Custom System Icons for this project
-enum SystemIcons: String {
-    case iconShield = "lock.shield.fill"
-    case cards = "creditcard.fill"
-    case notifications = "bell.fill"
-    case support = "bubble.left.and.bubble.right.fill"
-}
 
-enum CustomIconsUnwrapped: String {
+///Custom Symbols no wrap
+enum CustomSymbols: String {
     case globe = "Globe"
     case chat = "Chat"
     case bell = "Bell"
@@ -85,6 +77,13 @@ enum CustomIconsUnwrapped: String {
     case creditcard = "CreditCard"
     case clipBoard = "ClipBoard"
     case logout = "Logout"
+    case arrowFromTop = "ArrowFromTop"
+    case arrowToBottom = "ArrowToBottom"
+    case edit = "Edit"
+    case email = "Email"
+    case menu = "Menu"
+    case notifications = "Notifications"
+    case moreActions = "MoreActions"
 }
 
 enum Wallpapers: String {
@@ -93,15 +92,23 @@ enum Wallpapers: String {
     case Floater3 = "Floater3"
     case Floater4 = "Floater4"
     case Floater5 = "Floater5"
+    case none = "F"
 }
 
-enum IconsEnum: String {
+///SF Icons for this project
+enum SFIcons: String {
     case chevronDownCircle = "chevron.down.circle.fill"
     case chevronDown = "chevron.down"
+    case chevronUp = "chevron.up"
     case exclaimation = "exclamationmark.triangle.fill"
     case chevronLeft = "chevron.left"
+    case chevronRight = "chevron.right"
     case success = "checkmark.circle.fill"
-    case edit = "Edit"
+    case iconShield = "lock.shield.fill"
+    case cards = "creditcard.fill"
+    case notifications = "bell.fill"
+    case support = "bubble.left.and.bubble.right.fill"
+    
     
 }
 

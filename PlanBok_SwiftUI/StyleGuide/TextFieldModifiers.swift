@@ -17,7 +17,7 @@ struct TextFieldModifiers: View {
             Color("dark")
             .edgesIgnoringSafeArea(.all)
             VStack (spacing: 20)  {
-                TextFldWIcons(placeHolder: "Placeholder", textValue: $text, icon: IconsEnum.chevronDownCircle.rawValue, label: "Text Field W Icons").frame(width: screenWidth - 38)
+                TextFldWIcons(placeHolder: "Placeholder", textValue: $text, icon: SFIcons.chevronDownCircle.rawValue, label: "Text Field W Icons").frame(width: screenWidth - 38)
                 TextFldNIcons(placeHolder: "Placeholder", textValue: text, invalidField: false, label: "Text Field No Icons").frame(width: screenWidth - 38)
                 PasswordFld(placeHolder: "Placeholder", textValue: text, label: "Password").frame(width: screenWidth - 38)
             }
@@ -41,7 +41,7 @@ struct TextFldWIcons : View {
     @State var isSuccess: Bool = false
     
     
-    @State var icon: String = IconsEnum.chevronDown.rawValue
+    @State var icon: String = SFIcons.chevronDown.rawValue
     var label: String = "Label"
     
     var body: some View {
@@ -110,8 +110,10 @@ struct TextFldNIcons : View {
                 }
                 
             })
+                .lineLimit(3)
                 .multilineTextAlignment(.leading)
-            .padding()
+                .padding(.vertical, 20)
+                .padding(.leading, 24)
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(invalidField ? Color("ctError") : Color("darkTextFld"), lineWidth: 1)
@@ -119,7 +121,7 @@ struct TextFldNIcons : View {
             .background(Color("darkTextFld"))
             .cornerRadius(8)
         }
-        .modifier(TFMod())
+        .modifier(H6(color: .white))
         
         
     }
@@ -158,7 +160,8 @@ struct PasswordFld : View {
             
             SecureField(placeHolder, text: $textValue)
                 .multilineTextAlignment(.leading)
-            .padding()
+            .padding(.vertical, 20)
+            .padding(.leading, 24)
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(invalidField ? Color("ctError") : Color("dark"), lineWidth: 1)

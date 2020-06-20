@@ -38,25 +38,23 @@ struct Registration: View {
             BackGround()
             
             //MARK: - Text Controls
-            VStack () {
-                Spacer()
+            
+            //MARK: - Body Stack
+            VStack {
+                //Spacer()
                 RegistrationOutlets(email: $email, em: $em, password: $password, confirmPassword: $confirmPassword, allFieldsValidated: $allFieldsValidated, invalidEmail: $invalidEmail, invalidPassword: $invalidPassword, passwordMisMatch: $passwordMisMatch)
                 
                 Spacer()
-                Spacer()
-            }
-            .padding(.horizontal, 38)
+                //Spacer()
+            }.padding(.horizontal, K.CustomUIConstraints.hPadding)
+                .padding(.top, K.CustomUIConstraints.topPadding)
             
             //MARK: - Continue and Field validation
             VStack (spacing: 10) {
                 Button(action: {
                     
-                    print("My Email is \(self.email)")
-                    print("My Pwd is \(self.password)")
-                    print("My cpwd is \(self.confirmPassword)")
-                    
                     if self.allFieldsValidated {
-                        //self.continueReg.toggle()
+                        
                     }
                     if (self.password != "") && (self.email != "") && (self.confirmPassword != "") {
                         self.continueReg.toggle()
@@ -71,7 +69,7 @@ struct Registration: View {
                 
                 HStack {
                     Text("Already a member?")
-                        .font(.custom("Rubik-Medium", size: FontHelper.textSize(textStyle: .body))).foregroundColor(Color(FontColors.white.rawValue))
+                        .font(.custom("Rubik-Medium", size: FontHelper.textSize(textStyle: .body))).foregroundColor(Color(Colors.white.rawValue))
                     
                     Button(action: {
                         self.viewController?.present(presentationStyle: .fullScreen) {
@@ -79,7 +77,7 @@ struct Registration: View {
                         }
                     }) {
                         Text("Sign in")
-                            .font(.custom("Rubik-Medium", size: FontHelper.textSize(textStyle: .body))).foregroundColor(Color(FontColors.purple.rawValue))
+                            .font(.custom("Rubik-Medium", size: FontHelper.textSize(textStyle: .body))).foregroundColor(Color(Colors.p1.rawValue))
                     }
                     
                 }
@@ -94,9 +92,9 @@ struct Registration: View {
 struct Registration_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            Registration().previewDevice("iPhone 8")
+            //Registration().previewDevice("iPhone 8")
             Registration().previewDevice("iPhone 11")
-            Registration().previewDevice("iPhone 11 Pro Max")
+            //Registration().previewDevice("iPhone 11 Pro Max")
         }
     }
 }
@@ -108,7 +106,7 @@ struct RegistrationTitle: View {
     var body: some View {
         VStack (alignment: .leading, spacing: 25) {
             Text(title).modifier(H1(color: .white))
-            Text(subtitle).modifier(H4(color: FontColors.grey))
+            Text(subtitle).modifier(H4(color: Colors.grey))
         }
             .padding(.horizontal, 38)
         .offset(y: -screenHeight / 4.5)
@@ -185,6 +183,6 @@ struct RegistrationOutlets: View {
             }
             
         }
-        .padding(.horizontal, 38)
+        //.padding(.horizontal, 38)
     }
 }

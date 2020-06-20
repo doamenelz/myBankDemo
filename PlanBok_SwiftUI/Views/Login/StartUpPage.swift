@@ -20,7 +20,7 @@ struct StartUpPage: View {
     
     var body: some View {
         ZStack {
-            BackGround(image: "Floater2")
+            BackGround()
             VStack (spacing: 40) {
                 Logo()
                 VStack (spacing: 25) {

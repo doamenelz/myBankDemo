@@ -16,7 +16,7 @@ struct PlayHouse: View {
               ZStack {
                   BackGround()
                   VStack (){
-                      Image(systemName: status ? IconsEnum.success.rawValue : IconsEnum.exclaimation.rawValue)
+                      Image(systemName: status ? SFIcons.success.rawValue : SFIcons.exclaimation.rawValue)
                           .resizable()
                           .foregroundColor(status ? Color("ctSuccess") : Color("ctError"))
                           .aspectRatio(contentMode: .fit)

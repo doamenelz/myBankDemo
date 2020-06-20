@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,17 @@
 		7229182F249548C500E1B9C2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229182E249548C400E1B9C2 /* Settings.swift */; };
 		7229183124957FD800E1B9C2 /* IconModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229183024957FD800E1B9C2 /* IconModifiers.swift */; };
 		72291833249596BF00E1B9C2 /* MyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72291832249596BF00E1B9C2 /* MyProfile.swift */; };
+		722918352496030300E1B9C2 /* Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722918342496030200E1B9C2 /* Security.swift */; };
+		72291837249697BA00E1B9C2 /* NotificationsSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72291836249697BA00E1B9C2 /* NotificationsSettings.swift */; };
+		7229183924969F1600E1B9C2 /* GenericViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229183824969F1600E1B9C2 /* GenericViews.swift */; };
+		7229183B2496A21500E1B9C2 /* LanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229183A2496A21500E1B9C2 /* LanguageView.swift */; };
+		7229183D2496E4FF00E1B9C2 /* CardSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229183C2496E4FF00E1B9C2 /* CardSettings.swift */; };
+		7229184124984B5500E1B9C2 /* Transfers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229184024984B5500E1B9C2 /* Transfers.swift */; };
+		722918432498667500E1B9C2 /* TransferTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722918422498667500E1B9C2 /* TransferTo.swift */; };
+		722918452499185A00E1B9C2 /* TransferPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722918442499185A00E1B9C2 /* TransferPreview.swift */; };
+		722918472499284900E1B9C2 /* SendMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722918462499284900E1B9C2 /* SendMoney.swift */; };
+		722918492499883A00E1B9C2 /* SendMoneyConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722918482499883A00E1B9C2 /* SendMoneyConfirmation.swift */; };
+		7229184D2499A41600E1B9C2 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7229184C2499A41600E1B9C2 /* Notifications.swift */; };
 		724A9D32248F46BE0020AF54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D31248F46BE0020AF54 /* AppDelegate.swift */; };
 		724A9D34248F46BE0020AF54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D33248F46BE0020AF54 /* SceneDelegate.swift */; };
 		724A9D37248F46BE0020AF54 /* PlanBok_SwiftUI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D35248F46BE0020AF54 /* PlanBok_SwiftUI.xcdatamodeld */; };
@@ -50,6 +61,16 @@
 		724A9D842491CEF50020AF54 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D832491CEF50020AF54 /* ForgotPassword.swift */; };
 		724A9D872491DAA40020AF54 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D862491DAA40020AF54 /* Constants.swift */; };
 		724A9D892491DF280020AF54 /* Completion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D882491DF280020AF54 /* Completion.swift */; };
+		7273755B249D410300F52F3C /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7273755A249D410300F52F3C /* Contacts.swift */; };
+		7273755D249DA36400F52F3C /* ContactDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7273755C249DA36400F52F3C /* ContactDetail.swift */; };
+		7273755F249DB97B00F52F3C /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7273755E249DB97B00F52F3C /* History.swift */; };
+		72737561249DC20800F52F3C /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72737560249DC20800F52F3C /* Categories.swift */; };
+		72737564249DDEC000F52F3C /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72737563249DDEC000F52F3C /* Profile.swift */; };
+		72737566249DDFED00F52F3C /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72737565249DDFED00F52F3C /* RegistrationViewModel.swift */; };
+		72737569249E753700F52F3C /* Contentful in Frameworks */ = {isa = PBXBuildFile; productRef = 72737568249E753700F52F3C /* Contentful */; };
+		7273756B249E7DBF00F52F3C /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7273756A249E7DBF00F52F3C /* ContactsModel.swift */; };
+		7273756D249E91F900F52F3C /* CPG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7273756C249E91F900F52F3C /* CPG.swift */; };
+		72737570249E9BE900F52F3C /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7273756F249E9BE900F52F3C /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +83,17 @@
 		7229182E249548C400E1B9C2 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		7229183024957FD800E1B9C2 /* IconModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconModifiers.swift; sourceTree = "<group>"; };
 		72291832249596BF00E1B9C2 /* MyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfile.swift; sourceTree = "<group>"; };
+		722918342496030200E1B9C2 /* Security.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security.swift; sourceTree = "<group>"; };
+		72291836249697BA00E1B9C2 /* NotificationsSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsSettings.swift; sourceTree = "<group>"; };
+		7229183824969F1600E1B9C2 /* GenericViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViews.swift; sourceTree = "<group>"; };
+		7229183A2496A21500E1B9C2 /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
+		7229183C2496E4FF00E1B9C2 /* CardSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSettings.swift; sourceTree = "<group>"; };
+		7229184024984B5500E1B9C2 /* Transfers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transfers.swift; sourceTree = "<group>"; };
+		722918422498667500E1B9C2 /* TransferTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferTo.swift; sourceTree = "<group>"; };
+		722918442499185A00E1B9C2 /* TransferPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferPreview.swift; sourceTree = "<group>"; };
+		722918462499284900E1B9C2 /* SendMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMoney.swift; sourceTree = "<group>"; };
+		722918482499883A00E1B9C2 /* SendMoneyConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMoneyConfirmation.swift; sourceTree = "<group>"; };
+		7229184C2499A41600E1B9C2 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		724A9D2E248F46BE0020AF54 /* PlanBok_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlanBok_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		724A9D31248F46BE0020AF54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		724A9D33248F46BE0020AF54 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +131,14 @@
 		724A9D832491CEF50020AF54 /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
 		724A9D862491DAA40020AF54 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		724A9D882491DF280020AF54 /* Completion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Completion.swift; sourceTree = "<group>"; };
+		7273755A249D410300F52F3C /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
+		7273755C249DA36400F52F3C /* ContactDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetail.swift; sourceTree = "<group>"; };
+		7273755E249DB97B00F52F3C /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		72737560249DC20800F52F3C /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		72737563249DDEC000F52F3C /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		72737565249DDFED00F52F3C /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		7273756A249E7DBF00F52F3C /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
+		7273756C249E91F900F52F3C /* CPG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPG.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +146,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72737570249E9BE900F52F3C /* SDWebImageSwiftUI in Frameworks */,
+				72737569249E753700F52F3C /* Contentful in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				722918252493FFFF00E1B9C2 /* Home.swift */,
+				7273755E249DB97B00F52F3C /* History.swift */,
+				72737560249DC20800F52F3C /* Categories.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -132,8 +176,49 @@
 			children = (
 				7229182E249548C400E1B9C2 /* Settings.swift */,
 				72291832249596BF00E1B9C2 /* MyProfile.swift */,
+				722918342496030200E1B9C2 /* Security.swift */,
+				72291836249697BA00E1B9C2 /* NotificationsSettings.swift */,
+				7229183A2496A21500E1B9C2 /* LanguageView.swift */,
+				7229183C2496E4FF00E1B9C2 /* CardSettings.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		7229183E24984B0E00E1B9C2 /* Send Money */ = {
+			isa = PBXGroup;
+			children = (
+				722918462499284900E1B9C2 /* SendMoney.swift */,
+				722918482499883A00E1B9C2 /* SendMoneyConfirmation.swift */,
+			);
+			path = "Send Money";
+			sourceTree = "<group>";
+		};
+		7229183F24984B3C00E1B9C2 /* Transfers */ = {
+			isa = PBXGroup;
+			children = (
+				7229184024984B5500E1B9C2 /* Transfers.swift */,
+				722918422498667500E1B9C2 /* TransferTo.swift */,
+				722918442499185A00E1B9C2 /* TransferPreview.swift */,
+			);
+			path = Transfers;
+			sourceTree = "<group>";
+		};
+		7229184A2499A3BB00E1B9C2 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				7273755A249D410300F52F3C /* Contacts.swift */,
+				7273755C249DA36400F52F3C /* ContactDetail.swift */,
+				7273756C249E91F900F52F3C /* CPG.swift */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		7229184B2499A3F200E1B9C2 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				7229184C2499A41600E1B9C2 /* Notifications.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		724A9D25248F46BE0020AF54 = {
@@ -224,6 +309,10 @@
 		724A9D6D24907D560020AF54 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7229184B2499A3F200E1B9C2 /* Notifications */,
+				7229184A2499A3BB00E1B9C2 /* Contacts */,
+				7229183F24984B3C00E1B9C2 /* Transfers */,
+				7229183E24984B0E00E1B9C2 /* Send Money */,
 				7229182D249548A300E1B9C2 /* Settings */,
 				722918242493FFEE00E1B9C2 /* Home */,
 				722918232493FDAF00E1B9C2 /* Cards */,
@@ -232,6 +321,7 @@
 				724A9D6E24907D5E0020AF54 /* SplashScreens */,
 				7229182724947E0F00E1B9C2 /* Menu.swift */,
 				7229182B24949A1900E1B9C2 /* RootView.swift */,
+				7229183824969F1600E1B9C2 /* GenericViews.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -247,7 +337,9 @@
 		724A9D712490920D0020AF54 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				72737562249DDE9000F52F3C /* New Group */,
 				724A9D72249092310020AF54 /* SplashModel.swift */,
+				72737563249DDEC000F52F3C /* Profile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -257,6 +349,8 @@
 			children = (
 				724A9D75249097930020AF54 /* SplashScreenVM.swift */,
 				722918292494933C00E1B9C2 /* ViewRouter.swift */,
+				72737565249DDFED00F52F3C /* RegistrationViewModel.swift */,
+				7273756A249E7DBF00F52F3C /* ContactsModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -292,6 +386,13 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		72737562249DDE9000F52F3C /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -308,6 +409,10 @@
 			dependencies = (
 			);
 			name = PlanBok_SwiftUI;
+			packageProductDependencies = (
+				72737568249E753700F52F3C /* Contentful */,
+				7273756F249E9BE900F52F3C /* SDWebImageSwiftUI */,
+			);
 			productName = PlanBok_SwiftUI;
 			productReference = 724A9D2E248F46BE0020AF54 /* PlanBok_SwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -336,6 +441,10 @@
 				Base,
 			);
 			mainGroup = 724A9D25248F46BE0020AF54;
+			packageReferences = (
+				72737567249E753700F52F3C /* XCRemoteSwiftPackageReference "contentful.swift" */,
+				7273756E249E9BE900F52F3C /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = 724A9D2F248F46BE0020AF54 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -375,33 +484,52 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7273756B249E7DBF00F52F3C /* ContactsModel.swift in Sources */,
+				7229184124984B5500E1B9C2 /* Transfers.swift in Sources */,
 				724A9D6C249078690020AF54 /* Playground.swift in Sources */,
 				724A9D7024907D740020AF54 /* SplashScreen1.swift in Sources */,
 				7229182F249548C500E1B9C2 /* Settings.swift in Sources */,
 				722918222493107D00E1B9C2 /* KeyboardHlpr.swift in Sources */,
+				722918352496030300E1B9C2 /* Security.swift in Sources */,
 				724A9D7E2491842F0020AF54 /* Registration.swift in Sources */,
+				7273755D249DA36400F52F3C /* ContactDetail.swift in Sources */,
 				7229183124957FD800E1B9C2 /* IconModifiers.swift in Sources */,
+				722918432498667500E1B9C2 /* TransferTo.swift in Sources */,
+				72737566249DDFED00F52F3C /* RegistrationViewModel.swift in Sources */,
+				722918492499883A00E1B9C2 /* SendMoneyConfirmation.swift in Sources */,
 				724A9D68248F54B50020AF54 /* ButtonModifiers.swift in Sources */,
+				722918472499284900E1B9C2 /* SendMoney.swift in Sources */,
 				724A9D32248F46BE0020AF54 /* AppDelegate.swift in Sources */,
 				724A9D76249097930020AF54 /* SplashScreenVM.swift in Sources */,
 				724A9D4A248F4B890020AF54 /* FontModifiers.swift in Sources */,
 				724A9D7B249148E20020AF54 /* LoginPage.swift in Sources */,
+				7229183B2496A21500E1B9C2 /* LanguageView.swift in Sources */,
 				722918202492E7C200E1B9C2 /* PlayHouse.swift in Sources */,
+				7229184D2499A41600E1B9C2 /* Notifications.swift in Sources */,
 				724A9D6A248F66350020AF54 /* TextFieldModifiers.swift in Sources */,
 				724A9D8024918AA60020AF54 /* OTPVerification.swift in Sources */,
+				72291837249697BA00E1B9C2 /* NotificationsSettings.swift in Sources */,
 				724A9D892491DF280020AF54 /* Completion.swift in Sources */,
 				724A9D73249092310020AF54 /* SplashModel.swift in Sources */,
+				72737561249DC20800F52F3C /* Categories.swift in Sources */,
+				7273755B249D410300F52F3C /* Contacts.swift in Sources */,
+				7229183924969F1600E1B9C2 /* GenericViews.swift in Sources */,
 				7229182824947E1000E1B9C2 /* Menu.swift in Sources */,
 				7229182A2494933D00E1B9C2 /* ViewRouter.swift in Sources */,
 				722918262493FFFF00E1B9C2 /* Home.swift in Sources */,
+				7273755F249DB97B00F52F3C /* History.swift in Sources */,
 				724A9D822491C7AA0020AF54 /* SetPassword.swift in Sources */,
 				724A9D37248F46BE0020AF54 /* PlanBok_SwiftUI.xcdatamodeld in Sources */,
+				722918452499185A00E1B9C2 /* TransferPreview.swift in Sources */,
+				7229183D2496E4FF00E1B9C2 /* CardSettings.swift in Sources */,
 				724A9D39248F46BE0020AF54 /* ContentView.swift in Sources */,
 				724A9D792490B1FB0020AF54 /* StartUpPage.swift in Sources */,
 				724A9D842491CEF50020AF54 /* ForgotPassword.swift in Sources */,
 				724A9D34248F46BE0020AF54 /* SceneDelegate.swift in Sources */,
 				72291833249596BF00E1B9C2 /* MyProfile.swift in Sources */,
+				72737564249DDEC000F52F3C /* Profile.swift in Sources */,
 				724A9D872491DAA40020AF54 /* Constants.swift in Sources */,
+				7273756D249E91F900F52F3C /* CPG.swift in Sources */,
 				7229182C24949A1900E1B9C2 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -598,6 +726,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		72737567249E753700F52F3C /* XCRemoteSwiftPackageReference "contentful.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/contentful/contentful.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+		7273756E249E9BE900F52F3C /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		72737568249E753700F52F3C /* Contentful */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 72737567249E753700F52F3C /* XCRemoteSwiftPackageReference "contentful.swift" */;
+			productName = Contentful;
+		};
+		7273756F249E9BE900F52F3C /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7273756E249E9BE900F52F3C /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		724A9D35248F46BE0020AF54 /* PlanBok_SwiftUI.xcdatamodeld */ = {

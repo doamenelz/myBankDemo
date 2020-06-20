@@ -21,14 +21,14 @@ struct ForgotPwdCompleted: View {
             ZStack {
                 BackGround()
                 VStack (alignment: .leading){
-                    Image(systemName: status ? IconsEnum.success.rawValue : IconsEnum.exclaimation.rawValue)
+                    Image(systemName: status ? SFIcons.success.rawValue : SFIcons.exclaimation.rawValue)
                         .resizable()
                         .foregroundColor(status ? Color("ctSuccess") : Color("ctError"))
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 60, height: 60)
                     VStack (alignment: .leading, spacing: 15) {
                         Text(title).modifier(H1(color: .white))
-                        Text(subtitle).modifier(H4(color: FontColors.grey))
+                        Text(subtitle).modifier(H4(color: Colors.grey))
                     }
                     
                 }
@@ -71,7 +71,7 @@ struct CompletedView: View {
     var body: some View {
         VStack (spacing: 15) {
             Text(title).modifier(H1(color: .white))
-            Text(subtitle).modifier(H4(color: FontColors.grey))
+            Text(subtitle).modifier(H4(color: Colors.grey))
         }
             //.padding(.horizontal, 38)
         //.offset(y: -screenHeight / 4.5)

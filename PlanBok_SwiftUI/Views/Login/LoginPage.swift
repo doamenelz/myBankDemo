@@ -36,13 +36,13 @@ struct LoginPage: View {
                     }
                     HStack {
                         Text("Not yet a member?")
-                        .font(.custom("Rubik-Medium", size: FontHelper.textSize(textStyle: .body))).foregroundColor(Color(FontColors.white.rawValue))
+                        .font(.custom("Rubik-Medium", size: FontHelper.textSize(textStyle: .body))).foregroundColor(Color(Colors.white.rawValue))
                         
                         Button(action: {
                             
                         }) {
                             Text("Sign up")
-                                .font(.custom("Rubik-Medium", size: FontHelper.textSize(textStyle: .body))).foregroundColor(Color(FontColors.purple.rawValue))
+                                .font(.custom("Rubik-Medium", size: FontHelper.textSize(textStyle: .body))).foregroundColor(Color(Colors.p1.rawValue))
                         }
                     }
                 }
@@ -119,7 +119,7 @@ struct LoginOutlets: View {
                     
                 }) {
                     Text("Forgot Password?")
-                        .font(.custom("Rubik-Medium", size: 12)).foregroundColor(Color(FontColors.purple.rawValue))
+                        .font(.custom("Rubik-Medium", size: 12)).foregroundColor(Color(Colors.p1.rawValue))
                 }
                 .offset(x: screenWidth / 4)
                 VStack (alignment: .leading) {

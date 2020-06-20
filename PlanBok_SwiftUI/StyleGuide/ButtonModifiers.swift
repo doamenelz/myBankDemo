@@ -42,6 +42,20 @@ struct ButtonModifiers_Previews: PreviewProvider {
     }
 }
 
+struct PButton: View {
+    var label: String = "Button"
+    var body: some View {
+        HStack {
+            Text(label)
+                .modifier(H4(color: .white))
+                .padding(.vertical, 20)
+        }
+        .frame(maxWidth: .infinity)
+        .background(Color(Colors.p1.rawValue))
+        .cornerRadius(8)
+    }
+}
+
 struct PrimaryBtn: ViewModifier {
 
     func body(content: Content) -> some View {
@@ -49,7 +63,6 @@ struct PrimaryBtn: ViewModifier {
         .frame(height: 60)
         .background(Color("p1"))
         .cornerRadius(8)
-        
     }
     
 }
@@ -88,7 +101,7 @@ struct ButtonText: ViewModifier {
 
 struct TFMod: ViewModifier {
     func body(content: Content) -> some View {
-        content.font(.custom("Rubik-Regular", size: 20)).foregroundColor(Color(.white)).frame(width: screenWidth - 76)
+        content.font(.custom("Rubik-Regular", size: 20)).foregroundColor(Color(.white))//.frame(width: screenWidth - 76)
     }
 
 }
@@ -103,7 +116,7 @@ struct BackBtn: View {
         self.presentationMode.wrappedValue.dismiss()
         }) {
             HStack {
-                Image(systemName: IconsEnum.chevronLeft.rawValue)
+                Image(systemName: SFIcons.chevronLeft.rawValue)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                     .frame(width: 24, height: 24)
@@ -118,7 +131,7 @@ struct BackBtn: View {
 
 struct GoBack: View {
     var body: some View {
-        Image(systemName: IconsEnum.chevronLeft.rawValue)
+        Image(systemName: SFIcons.chevronLeft.rawValue)
         .resizable()
             .aspectRatio(contentMode: .fit)
             .foregroundColor(.white)

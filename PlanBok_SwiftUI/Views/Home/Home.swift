@@ -55,7 +55,7 @@ struct Home: View {
                                             Menu()
                                         }
                                     }) {
-                                        Card(card: card)
+                                        Card(isCheckBoxStyled: false, card: card)
                                         .frame(width: screenWidth - 60)
                                     }
 //
@@ -109,10 +109,8 @@ struct Home: View {
                 }.offset(y: 70)
                 
                 //MARK: - Main Navigation
-                VStack {
-                    MainNavigation(header: "Wallet", icon: "Menu")
-                    Spacer()
-                }
+                MainNavigation(header: .wallet)
+                 
             }
 
     }
@@ -140,75 +138,80 @@ struct MainNavigation: View {
     
     @EnvironmentObject var viewRouter: ViewRouter
     
-    var header: String = "Wallet"
-    var icon: String = "Menu"
-    var leftIcon: String = "Notifications"
+    var header: MenuScreens = .wallet
+    let rightIcon: CustomSymbols = .menu
+    let leftIcon: CustomSymbols = .notifications
     var body: some View {
-        HStack {
-            Image(leftIcon)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: K.CustomUIConstraints.menuIconFrame)
-            Spacer()
-            Text(header).modifier(H4(color: .white))
-            Spacer()
-            Button(action: {
-                print("Menu Pressed")
-                //self.viewRouter.currentPage = .menu
-                
-                self.viewController?.present(presentationStyle: .fullScreen) {
-                    Menu()
-                }
-            }) {
-                Image(icon)
+        VStack {
+            HStack {
+                Image(leftIcon.rawValue)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: K.CustomUIConstraints.menuIconFrame)
-                    .foregroundColor(.white)
-            }
+                Spacer()
+                Text(header.rawValue).modifier(H4(color: .white))
+                Spacer()
+                Button(action: {
+                    self.viewController?.present(presentationStyle: .fullScreen) {
+                        Menu()
+                    }
+                }) {
+                    Image(rightIcon.rawValue)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: K.CustomUIConstraints.menuIconFrame)
+                        .foregroundColor(.white)
+                }
 
+                
+            }.padding(.horizontal, 30)
+                .padding(.top)
             
-        }.padding(.horizontal, 30)
-        .padding(.top)
+            Spacer()
+        }
     }
 }
 
-struct Card: View {
+struct SecondaryNavigation: View {
+    @Environment(\.viewController) private var viewControllerHolder: ViewControllerHolder
+    private var viewController: UIViewController? {
+     self.viewControllerHolder.value
+    }
     
-    let card: CardM
+    @EnvironmentObject var viewRouter: ViewRouter
     
+    var header: String = "Wallet"
+    let rightIcon: CustomSymbols = .menu
+    let leftIcon: SFIcons = .chevronLeft
     var body: some View {
-        ZStack {
-            VStack (alignment: .leading, spacing: 30) {
-                VStack (alignment: .leading, spacing: 5) {
-                    Text("Balance").modifier(H6(color: .grey))
-                    Text("$ \(card.balance)").modifier(H3(color: .white))
-                }
-                HStack {
-                    Text("****").modifier(H3(color: .white))
-                    Spacer()
-                    Text("****").modifier(H3(color: .white))
-                    Spacer()
-                    Text("****").modifier(H3(color: .white))
-                    Spacer()
-                    Text(card.last4Digits).modifier(H3(color: .white))
-                        //.frame(maxWidth: .infinity)
-                }
-                HStack {
-                    VStack (alignment: .leading, spacing: 5) {
-                        Text(card.expiry).modifier(TextFieldLbl())
-                        Text(card.name).modifier(TextFieldLbl())
+        VStack {
+            HStack {
+                Image(systemName: leftIcon.rawValue)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 20)
+                    .foregroundColor(.white)
+                Spacer()
+                Text(header).modifier(H4(color: .white))
+                Spacer()
+                Button(action: {
+                    self.viewController?.present(presentationStyle: .fullScreen) {
+                        Menu()
                     }
-                    Spacer()
-                    Image(card.type).renderingMode(.original)
+                }) {
+                    Image(rightIcon.rawValue)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: K.CustomUIConstraints.menuIconFrame)
+                        .foregroundColor(.white)
                 }
+
                 
-            }.padding(.horizontal, 20)
-                .padding(.vertical, 20)
+            }.padding(.horizontal, 30)
+            .padding(.vertical)
+            
+            Spacer()
         }
-        .background(LinearGradient(gradient: Gradient(colors: [Color(FontColors.tb6.rawValue), Color(FontColors.tb4.rawValue).opacity(0.6)]), startPoint: .top, endPoint: .bottom))
-        .shadow(radius: 20)
-        .cornerRadius(8)
     }
 }
 
@@ -259,14 +262,14 @@ struct SectionBtn: View {
     var iconType: IconType
     var body: some View{
         HStack {
-            Text(text).modifier(H6(color: .purple))
+            Text(text).modifier(H6(color: .p1))
             
             if iconType == .systemFont {
                 Image(systemName: icon)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 15)
-                    .foregroundColor(Color(FontColors.purple.rawValue))
+                    .foregroundColor(Color(Colors.p1.rawValue))
             } else {
                 Image(icon)
                     .renderingMode(.original)
@@ -298,9 +301,9 @@ struct TransactioCell: View {
     mutating func checktransactionType (transaction: Transaction) -> String  {
         //var color: String
         if transaction.type == .credit {
-            color = FontColors.credit.rawValue
+            color = Colors.credit.rawValue
         } else {
-            color = FontColors.debit.rawValue
+            color = Colors.debit.rawValue
         }
         
         return color
@@ -311,7 +314,7 @@ struct TransactioCell: View {
         VStack {
             HStack (spacing: 20) {
                 ZStack {
-                    Color(FontColors.white.rawValue).opacity(0.05)
+                    Color(Colors.white.rawValue).opacity(0.05)
                         .frame(width: 48, height: 48)
                         .cornerRadius(8)
                     Image(transaction.image)
@@ -343,27 +346,25 @@ enum TransactionType {
     case credit
 }
 
-struct Transaction: Identifiable {
-    let id = UUID()
-    let image: String
-    let receipient: String
-    let transactionDate: String
-    let amount: Int
-    let type: TransactionType
+enum TransactionCategory: String {
+    case shopping = "Shopping"
+    case food = "Food"
+    case bills = "Bills"
+    case transport = "Transport"
 }
 
 extension Transaction {
     static func all() -> [Transaction] {
         return [
-            Transaction(image: "Uber", receipient: "Uber Trip", transactionDate: "16 Apr, 9:94am", amount: 12345, type: .credit),
-            Transaction(image: "BurgerKing", receipient: "Burger King purchase", transactionDate: "16 Apr, 9:94am", amount: -400, type: .debit),
-            Transaction(image: "Zara", receipient: "Zara Purchase", transactionDate: "16 Apr, 9:94am", amount: 254, type: .credit),
-            Transaction(image: "Nike", receipient: "Nike Store", transactionDate: "16 Apr, 9:94am", amount: 10, type: .credit),
-            Transaction(image: "McDonald", receipient: "McDonald Fries", transactionDate: "16 Apr, 9:94am", amount: 134, type: .credit),
-            Transaction(image: "KFC", receipient: "KFC Chicken Stash", transactionDate: "16 Apr, 9:94am", amount: -56, type: .debit),
-            Transaction(image: "Uber", receipient: "Uber Trip", transactionDate: "16 Apr, 9:94am", amount: 5456, type: .credit),
-            Transaction(image: "Zara", receipient: "Zara Jacket", transactionDate: "16 Apr, 9:94am", amount: -2345, type: .debit),
-            Transaction(image: "Uber", receipient: "Uber Trip", transactionDate: "16 Apr, 9:94am", amount: 10000, type: .credit),
+            Transaction(image: "Uber", receipient: "Uber Trip", transactionDate: "16 Apr, 9:94am", amount: 12345, type: .credit, category: .transport),
+            Transaction(image: "BurgerKing", receipient: "Burger King purchase", transactionDate: "16 Apr, 9:94am", amount: -400, type: .debit, category: .food),
+            Transaction(image: "Zara", receipient: "Zara Purchase", transactionDate: "16 Apr, 9:94am", amount: 254, type: .credit, category: .shopping),
+            Transaction(image: "Nike", receipient: "Nike Store", transactionDate: "16 Apr, 9:94am", amount: 10, type: .credit, category: .shopping),
+            Transaction(image: "McDonald", receipient: "McDonald Fries", transactionDate: "16 Apr, 9:94am", amount: 134, type: .credit, category: .food),
+            Transaction(image: "KFC", receipient: "KFC Chicken Stash", transactionDate: "16 Apr, 9:94am", amount: -56, type: .debit, category: .food),
+            Transaction(image: "Uber", receipient: "Uber Trip", transactionDate: "16 Apr, 9:94am", amount: 5456, type: .credit, category: .transport),
+            Transaction(image: "Zara", receipient: "Zara Jacket", transactionDate: "16 Apr, 9:94am", amount: -2345, type: .debit, category: .shopping),
+            Transaction(image: "Uber", receipient: "Uber Trip", transactionDate: "16 Apr, 9:94am", amount: 10000, type: .credit, category: .transport),
         ]
     }
     

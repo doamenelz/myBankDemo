@@ -14,13 +14,13 @@ struct Settings: View {
     
     var body: some View {
         ZStack {
-            BackGround(image: Wallpapers.Floater2.rawValue)
+            BackGround(wallpaper: .Floater2)
             
             //MARK: - Settings Stack
             ScrollView (showsIndicators: false) {
                 
                 //Profile
-                VStack (spacing: 50) {
+                VStack (spacing: 20) {
                     VStack {
                         Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                             ProfileCell()//.padding(.bottom, 50)
@@ -45,10 +45,7 @@ struct Settings: View {
             }.offset(y: 70)
             
             //MARK: - Main Navigation
-            VStack {
-                MainNavigation(header: "Settings")
-                Spacer()
-            }
+            MainNavigation(header: .wallet)
         }
     }
 }
@@ -68,10 +65,10 @@ struct SettingsCell: View {
     var body: some View{
         VStack (alignment: .leading, spacing: 5) {
             HStack (spacing: 20) {
-                Icons(icon: CustomIconsUnwrapped(rawValue: settingItem.image.icon.rawValue)!)
+                IconsWrapped_Custom(icon: CustomSymbols(rawValue: settingItem.image.icon.rawValue)!)
                 Text(settingItem.label).modifier(H6(color: .white))
                 Spacer()
-                Image(systemName: "chevron.right").foregroundColor(Color(FontColors.grey.rawValue)).opacity(0.5)
+                Image(systemName: "chevron.right").foregroundColor(Color(Colors.grey.rawValue)).opacity(0.5)
                 
             }.padding(.top, 5)
             Path{ path in
@@ -87,7 +84,7 @@ struct SettingsCell: View {
 struct SettingsLanding: Identifiable {
     let id = UUID()
     let label: String
-    let image: Icons
+    let image: IconsWrapped_Custom
     //let icon: Icons
 }
 
@@ -121,7 +118,7 @@ struct ProfileCell: View {
             }
             
             Spacer()
-            Image(systemName: "chevron.right").foregroundColor(Color(FontColors.grey.rawValue))
+            Image(systemName: "chevron.right").foregroundColor(Color(Colors.grey.rawValue))
         }
     }
 }

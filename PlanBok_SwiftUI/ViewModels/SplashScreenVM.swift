@@ -28,9 +28,9 @@ struct SplashScreen1: View {
     @State var width1: CGFloat = 35
     @State var width2: CGFloat = 10
     @State var width3: CGFloat = 10
-    @State var page1Selected: String = FontColors.purple.rawValue
-    @State var page2Selected: String = FontColors.tb4.rawValue
-    @State var page3Selected: String = FontColors.tb4.rawValue
+    @State var page1Selected: String = Colors.p1.rawValue
+    @State var page2Selected: String = Colors.tb4.rawValue
+    @State var page3Selected: String = Colors.tb4.rawValue
     
     private func changePageControl () {
         
@@ -58,7 +58,7 @@ struct SplashScreen1: View {
         
         NavigationView {
             ZStack {
-                BackGround(image: "FloaterA")
+                BackGround()
                 
                 SP1(icon: pageModel[currentPage].icon, title: pageModel[currentPage].title, subtitle: pageModel[currentPage].subtitle).offset(y: -50)
                     .gesture(
@@ -144,22 +144,7 @@ struct SP1: View {
     }
 }
 
-struct BackGround: View {
-    
-    var image: String = "Floater2"
-    var body: some View {
-        ZStack {
-            Color("dark")
-                .edgesIgnoringSafeArea(.all)
-            Image(image)
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: screenWidth)
-            .offset(y: -screenHeight / 3 )
-        }
-        
-    }
-}
+
 
 
 

@@ -32,6 +32,8 @@ struct RootView: View {
             } else if viewRouter.currentPage == .menu {
                 Menu()
                     .transition(.scale)
+            } else if viewRouter.currentPage == .contacts {
+                Contacts(selectedContact: sampleContact)
             }
         }
     }

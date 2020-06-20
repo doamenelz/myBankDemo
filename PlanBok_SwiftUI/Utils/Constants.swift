@@ -25,6 +25,7 @@ struct K {
         static let horizontalPadding: CGFloat = 38.0
         static let hPadding: CGFloat = 30.0
         static let menuIconFrame: CGFloat = 24.0
+        static let topPadding: CGFloat = 75
     }
 }
 

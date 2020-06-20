@@ -46,9 +46,9 @@ class PageControl {
     var width1: CGFloat = 30
     var width2: CGFloat = 10
     var width3: CGFloat = 10
-    var page1Selected: String = FontColors.purple.rawValue
-    var page2Selected: String = FontColors.tb4.rawValue
-    var page3Selected: String = FontColors.tb4.rawValue
+    var page1Selected: String = Colors.p1.rawValue
+    var page2Selected: String = Colors.tb4.rawValue
+    var page3Selected: String = Colors.tb4.rawValue
     
     init(width1: CGFloat, width2: CGFloat, width3: CGFloat) {
         self.width1 = width1
@@ -63,32 +63,32 @@ class PageControl {
             width1 = 30
             width2 = 10
             width3 = 10
-            page1Selected = FontColors.purple.rawValue
-            page2Selected = FontColors.tb4.rawValue
-            page3Selected = FontColors.tb4.rawValue
+            page1Selected = Colors.p1.rawValue
+            page2Selected = Colors.tb4.rawValue
+            page3Selected = Colors.tb4.rawValue
         case 1:
             width1 = 10
             width2 = 30
             width3 = 10
-            page1Selected = FontColors.tb4.rawValue
-            page2Selected = FontColors.purple.rawValue
-            page3Selected = FontColors.tb4.rawValue
+            page1Selected = Colors.tb4.rawValue
+            page2Selected = Colors.p1.rawValue
+            page3Selected = Colors.tb4.rawValue
             
         case 2:
             width1 = 10
             width2 = 10
             width3 = 30
-            page1Selected = FontColors.tb4.rawValue
-            page2Selected = FontColors.tb4.rawValue
-            page3Selected = FontColors.purple.rawValue
+            page1Selected = Colors.tb4.rawValue
+            page2Selected = Colors.tb4.rawValue
+            page3Selected = Colors.p1.rawValue
             
         default:
             width1 = 30
             width2 = 10
             width3 = 10
-            page1Selected = FontColors.purple.rawValue
-            page2Selected = FontColors.tb4.rawValue
-            page3Selected = FontColors.tb4.rawValue
+            page1Selected = Colors.p1.rawValue
+            page2Selected = Colors.tb4.rawValue
+            page3Selected = Colors.tb4.rawValue
         }
      return (width1, width2, width3, page1Selected, page2Selected, page3Selected)
     }
