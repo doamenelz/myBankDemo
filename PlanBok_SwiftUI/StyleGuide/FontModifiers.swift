@@ -110,7 +110,7 @@ struct H6: ViewModifier {
     var color: Colors
     
     func body(content: Content) -> some View {
-        content.font(.custom("Rubik-Regular", size: 18)).foregroundColor(Color(color.rawValue))
+        content.font(.custom("Rubik-Regular", size: 16)).foregroundColor(Color(color.rawValue))
     }
 
 }

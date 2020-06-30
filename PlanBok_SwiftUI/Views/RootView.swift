@@ -24,16 +24,22 @@ struct RootView: View {
 //        }
 //
 //    }
+    
     var body: some View {
         VStack {
             
+            
             if viewRouter.currentPage == .wallet {
-                Home()
+                WalletHome()
             } else if viewRouter.currentPage == .menu {
                 Menu()
                     .transition(.scale)
             } else if viewRouter.currentPage == .contacts {
                 Contacts(selectedContact: sampleContact)
+            } else if viewRouter.currentPage == .startUp {
+                StartUpPage()
+            } else if viewRouter.currentPage == .login {
+                LoginPage()
             }
         }
     }

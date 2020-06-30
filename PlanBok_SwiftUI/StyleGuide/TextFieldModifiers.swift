@@ -18,7 +18,7 @@ struct TextFieldModifiers: View {
             .edgesIgnoringSafeArea(.all)
             VStack (spacing: 20)  {
                 TextFldWIcons(placeHolder: "Placeholder", textValue: $text, icon: SFIcons.chevronDownCircle.rawValue, label: "Text Field W Icons").frame(width: screenWidth - 38)
-                TextFldNIcons(placeHolder: "Placeholder", textValue: text, invalidField: false, label: "Text Field No Icons").frame(width: screenWidth - 38)
+                TextFldNIcons(placeHolder: "Placeholder", textValue: $text, invalidField: false, label: "Text Field No Icons").frame(width: screenWidth - 38)
                 PasswordFld(placeHolder: "Placeholder", textValue: text, label: "Password").frame(width: screenWidth - 38)
             }
             
@@ -73,7 +73,7 @@ struct TextFldWIcons : View {
 
 struct TextFldNIcons : View {
     @State var placeHolder: String
-    @State var textValue: String
+    @Binding var textValue: String
     
     @State var invalidField: Bool
     //@State var startedTyping: Bool = false
@@ -130,7 +130,6 @@ struct TextFldNIcons : View {
 struct TxtF: ViewModifier {
 
     var invalidField: Bool
-    //var color: FontColors
     func body(content: Content) -> some View {
         content.multilineTextAlignment(.leading)
         .padding()
@@ -173,4 +172,11 @@ struct PasswordFld : View {
         
         
     }
+}
+
+struct TFMod: ViewModifier {
+    func body(content: Content) -> some View {
+        content.font(.custom("Rubik-Regular", size: 18)).foregroundColor(Color(.white))//.frame(width: screenWidth - 76)
+    }
+
 }

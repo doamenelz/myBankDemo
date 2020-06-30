@@ -40,7 +40,7 @@ struct TransferPreview: View {
                 Button(action: {
                     
                 }) {
-                    PButton(label: "Complete")
+                    PrimaryButton(label: "Complete")
                 }
                 Spacer()
             }.padding(.top, K.CustomUIConstraints.topPadding)

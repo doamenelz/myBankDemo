@@ -14,11 +14,8 @@ struct Contacts: View {
     
     @State var search = ""
     @State var showContactDetail: Bool = false
-    //@ObservedObject var contacts = ContactsStore()
     @ObservedObject var contacts = ContactsStore()
     @ObservedObject var store = ContactsStore()
-    //@State var selectedContact = ContactsViewModel(selectedContact: sampleContact)
-    //@ObservedObject var selected = ContactsViewModel()
     
     @State var selectedContact: Contact
     

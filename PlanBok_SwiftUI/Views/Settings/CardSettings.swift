@@ -30,8 +30,9 @@ struct CardSettings: View {
                             Button(action: {
                                 
                             }) {
-                                Card(isCheckBoxStyled: true, card: card)
-                                .frame(width: screenWidth - 60)
+                                Text("")
+//                                Card(isCheckBoxStyled: true, card: card)
+//                                .frame(width: screenWidth - 60)
                             }
                         }
                     }.padding(.horizontal, 30)
@@ -68,7 +69,9 @@ struct Card: View {
     
     var isCheckBoxStyled: Bool
     
-    let card: CardM
+    let card: CustomerCard
+    
+    
     
     var body: some View {
         ZStack {
@@ -92,16 +95,16 @@ struct Card: View {
                     Spacer()
                     Text("****").modifier(H3(color: .white))
                     Spacer()
-                    Text(card.last4Digits).modifier(H3(color: .white))
+                    Text("\(card.cardNumber)").modifier(H3(color: .white))
                     
                 }
                 HStack {
                     VStack (alignment: .leading, spacing: 5) {
-                        Text(card.expiry).modifier(TextFieldLbl())
-                        Text(card.name).modifier(TextFieldLbl())
+                        Text(card.expiryDate).modifier(TextFieldLbl())
+                        Text(card.cardName).modifier(TextFieldLbl())
                     }
                     Spacer()
-                    Image(card.type).renderingMode(.original)
+                    Image(card.cardProvider).renderingMode(.original)
                 }
                 
             }.padding(.all, 30)

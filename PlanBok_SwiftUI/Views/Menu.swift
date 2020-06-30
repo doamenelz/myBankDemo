@@ -131,6 +131,9 @@ enum MenuScreens: String {
     case contacts = "Contacts"
     case settings = "Settings"
     case menu = "Menu"
+    case login = "Login"
+    case signUp = "Registration"
+    case startUp = "StartUpPage"
 }
 
 struct BlurView: UIViewRepresentable {

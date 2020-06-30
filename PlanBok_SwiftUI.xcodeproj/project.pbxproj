@@ -61,6 +61,10 @@
 		724A9D842491CEF50020AF54 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D832491CEF50020AF54 /* ForgotPassword.swift */; };
 		724A9D872491DAA40020AF54 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D862491DAA40020AF54 /* Constants.swift */; };
 		724A9D892491DF280020AF54 /* Completion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D882491DF280020AF54 /* Completion.swift */; };
+		726F02CC24A714C100B2FC37 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726F02CB24A714C100B2FC37 /* LoginModel.swift */; };
+		726F02D524A8246100B2FC37 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726F02D424A8246100B2FC37 /* ImagePicker.swift */; };
+		726F02D724A8536100B2FC37 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726F02D624A8536100B2FC37 /* ConfirmationView.swift */; };
+		726F02D924A869E600B2FC37 /* WalletHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726F02D824A869E600B2FC37 /* WalletHome.swift */; };
 		7273755B249D410300F52F3C /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7273755A249D410300F52F3C /* Contacts.swift */; };
 		7273755D249DA36400F52F3C /* ContactDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7273755C249DA36400F52F3C /* ContactDetail.swift */; };
 		7273755F249DB97B00F52F3C /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7273755E249DB97B00F52F3C /* History.swift */; };
@@ -71,6 +75,12 @@
 		7273756B249E7DBF00F52F3C /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7273756A249E7DBF00F52F3C /* ContactsModel.swift */; };
 		7273756D249E91F900F52F3C /* CPG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7273756C249E91F900F52F3C /* CPG.swift */; };
 		72737570249E9BE900F52F3C /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7273756F249E9BE900F52F3C /* SDWebImageSwiftUI */; };
+		72737572249F0B5500F52F3C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72737571249F0B5500F52F3C /* GoogleService-Info.plist */; };
+		72737575249F138E00F52F3C /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72737574249F138E00F52F3C /* UserStore.swift */; };
+		72737577249F26F400F52F3C /* RegisterBio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72737576249F26F400F52F3C /* RegisterBio.swift */; };
+		7282685B24A97D9400B57A80 /* AddCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7282685A24A97D9400B57A80 /* AddCardView.swift */; };
+		7282685D24AABE4100B57A80 /* CardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7282685C24AABE4100B57A80 /* CardsModel.swift */; };
+		B0943CC8A31CE5CFC5CDD72D /* Pods_PlanBok_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F56D58E671048C65C36C8991 /* Pods_PlanBok_SwiftUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +141,10 @@
 		724A9D832491CEF50020AF54 /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
 		724A9D862491DAA40020AF54 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		724A9D882491DF280020AF54 /* Completion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Completion.swift; sourceTree = "<group>"; };
+		726F02CB24A714C100B2FC37 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		726F02D424A8246100B2FC37 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		726F02D624A8536100B2FC37 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
+		726F02D824A869E600B2FC37 /* WalletHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletHome.swift; sourceTree = "<group>"; };
 		7273755A249D410300F52F3C /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		7273755C249DA36400F52F3C /* ContactDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetail.swift; sourceTree = "<group>"; };
 		7273755E249DB97B00F52F3C /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
@@ -139,6 +153,14 @@
 		72737565249DDFED00F52F3C /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		7273756A249E7DBF00F52F3C /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
 		7273756C249E91F900F52F3C /* CPG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPG.swift; sourceTree = "<group>"; };
+		72737571249F0B5500F52F3C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		72737574249F138E00F52F3C /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
+		72737576249F26F400F52F3C /* RegisterBio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterBio.swift; sourceTree = "<group>"; };
+		7282685A24A97D9400B57A80 /* AddCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardView.swift; sourceTree = "<group>"; };
+		7282685C24AABE4100B57A80 /* CardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsModel.swift; sourceTree = "<group>"; };
+		97FE80567A5BEBFF0E4069AD /* Pods-PlanBok_SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlanBok_SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-PlanBok_SwiftUI/Pods-PlanBok_SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
+		CD1858766ADC91A18A9D3E20 /* Pods-PlanBok_SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlanBok_SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-PlanBok_SwiftUI/Pods-PlanBok_SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
+		F56D58E671048C65C36C8991 /* Pods_PlanBok_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlanBok_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,12 +170,22 @@
 			files = (
 				72737570249E9BE900F52F3C /* SDWebImageSwiftUI in Frameworks */,
 				72737569249E753700F52F3C /* Contentful in Frameworks */,
+				B0943CC8A31CE5CFC5CDD72D /* Pods_PlanBok_SwiftUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50160881461E9BEEB7BFE48E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				97FE80567A5BEBFF0E4069AD /* Pods-PlanBok_SwiftUI.debug.xcconfig */,
+				CD1858766ADC91A18A9D3E20 /* Pods-PlanBok_SwiftUI.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		722918232493FDAF00E1B9C2 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +199,8 @@
 				722918252493FFFF00E1B9C2 /* Home.swift */,
 				7273755E249DB97B00F52F3C /* History.swift */,
 				72737560249DC20800F52F3C /* Categories.swift */,
+				726F02D824A869E600B2FC37 /* WalletHome.swift */,
+				7282685A24A97D9400B57A80 /* AddCardView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -226,6 +260,8 @@
 			children = (
 				724A9D30248F46BE0020AF54 /* PlanBok_SwiftUI */,
 				724A9D2F248F46BE0020AF54 /* Products */,
+				50160881461E9BEEB7BFE48E /* Pods */,
+				AA72D12AAD8522F0BBAB8032 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -240,15 +276,16 @@
 		724A9D30248F46BE0020AF54 /* PlanBok_SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				726F02D324A8068B00B2FC37 /* System Files */,
+				724A9D48248F4B500020AF54 /* StyleGuide */,
+				72737573249F137800F52F3C /* Stores */,
 				724A9D852491DA720020AF54 /* Utils */,
 				724A9D742490977D0020AF54 /* ViewModels */,
 				724A9D712490920D0020AF54 /* Models */,
 				724A9D6D24907D560020AF54 /* Views */,
-				724A9D48248F4B500020AF54 /* StyleGuide */,
-				724A9D31248F46BE0020AF54 /* AppDelegate.swift */,
-				724A9D33248F46BE0020AF54 /* SceneDelegate.swift */,
 				724A9D38248F46BE0020AF54 /* ContentView.swift */,
 				724A9D3A248F46C00020AF54 /* Assets.xcassets */,
+				72737571249F0B5500F52F3C /* GoogleService-Info.plist */,
 				724A9D3F248F46C00020AF54 /* LaunchScreen.storyboard */,
 				724A9D42248F46C00020AF54 /* Info.plist */,
 				724A9D35248F46BE0020AF54 /* PlanBok_SwiftUI.xcdatamodeld */,
@@ -309,15 +346,15 @@
 		724A9D6D24907D560020AF54 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				724A9D772490B1D60020AF54 /* Login */,
+				724A9D7C249184040020AF54 /* Registration */,
+				722918242493FFEE00E1B9C2 /* Home */,
 				7229184B2499A3F200E1B9C2 /* Notifications */,
 				7229184A2499A3BB00E1B9C2 /* Contacts */,
 				7229183F24984B3C00E1B9C2 /* Transfers */,
 				7229183E24984B0E00E1B9C2 /* Send Money */,
 				7229182D249548A300E1B9C2 /* Settings */,
-				722918242493FFEE00E1B9C2 /* Home */,
 				722918232493FDAF00E1B9C2 /* Cards */,
-				724A9D772490B1D60020AF54 /* Login */,
-				724A9D7C249184040020AF54 /* Registration */,
 				724A9D6E24907D5E0020AF54 /* SplashScreens */,
 				7229182724947E0F00E1B9C2 /* Menu.swift */,
 				7229182B24949A1900E1B9C2 /* RootView.swift */,
@@ -337,9 +374,10 @@
 		724A9D712490920D0020AF54 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				72737562249DDE9000F52F3C /* New Group */,
+				72737562249DDE9000F52F3C /* LoginRegModel */,
 				724A9D72249092310020AF54 /* SplashModel.swift */,
 				72737563249DDEC000F52F3C /* Profile.swift */,
+				7282685C24AABE4100B57A80 /* CardsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -368,6 +406,8 @@
 			isa = PBXGroup;
 			children = (
 				724A9D7D2491842F0020AF54 /* Registration.swift */,
+				72737576249F26F400F52F3C /* RegisterBio.swift */,
+				726F02D624A8536100B2FC37 /* ConfirmationView.swift */,
 				724A9D7F24918AA60020AF54 /* OTPVerification.swift */,
 				724A9D812491C7AA0020AF54 /* SetPassword.swift */,
 				724A9D832491CEF50020AF54 /* ForgotPassword.swift */,
@@ -382,15 +422,42 @@
 			children = (
 				724A9D862491DAA40020AF54 /* Constants.swift */,
 				722918212493107C00E1B9C2 /* KeyboardHlpr.swift */,
+				726F02D424A8246100B2FC37 /* ImagePicker.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		72737562249DDE9000F52F3C /* New Group */ = {
+		726F02D324A8068B00B2FC37 /* System Files */ = {
 			isa = PBXGroup;
 			children = (
+				724A9D31248F46BE0020AF54 /* AppDelegate.swift */,
+				724A9D33248F46BE0020AF54 /* SceneDelegate.swift */,
 			);
-			path = "New Group";
+			path = "System Files";
+			sourceTree = "<group>";
+		};
+		72737562249DDE9000F52F3C /* LoginRegModel */ = {
+			isa = PBXGroup;
+			children = (
+				726F02CB24A714C100B2FC37 /* LoginModel.swift */,
+			);
+			path = LoginRegModel;
+			sourceTree = "<group>";
+		};
+		72737573249F137800F52F3C /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				72737574249F138E00F52F3C /* UserStore.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		AA72D12AAD8522F0BBAB8032 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F56D58E671048C65C36C8991 /* Pods_PlanBok_SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,9 +467,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 724A9D45248F46C00020AF54 /* Build configuration list for PBXNativeTarget "PlanBok_SwiftUI" */;
 			buildPhases = (
+				967FA5DEF08D166EC0C46034 /* [CP] Check Pods Manifest.lock */,
 				724A9D2A248F46BE0020AF54 /* Sources */,
 				724A9D2B248F46BE0020AF54 /* Frameworks */,
 				724A9D2C248F46BE0020AF54 /* Resources */,
+				104CCFEF1B9B76CFCFE528CC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -468,6 +537,7 @@
 				724A9D5E248F4D480020AF54 /* Rubik-Light.ttf in Resources */,
 				724A9D61248F4D480020AF54 /* Rubik-Italic.ttf in Resources */,
 				724A9D5F248F4D480020AF54 /* Rubik-Medium.ttf in Resources */,
+				72737572249F0B5500F52F3C /* GoogleService-Info.plist in Resources */,
 				724A9D3B248F46C00020AF54 /* Assets.xcassets in Resources */,
 				724A9D65248F4D480020AF54 /* Rubik-BoldItalic.ttf in Resources */,
 				724A9D63248F4D480020AF54 /* Rubik-BlackItalic.ttf in Resources */,
@@ -479,20 +549,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		104CCFEF1B9B76CFCFE528CC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PlanBok_SwiftUI/Pods-PlanBok_SwiftUI-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PlanBok_SwiftUI/Pods-PlanBok_SwiftUI-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PlanBok_SwiftUI/Pods-PlanBok_SwiftUI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		967FA5DEF08D166EC0C46034 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PlanBok_SwiftUI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		724A9D2A248F46BE0020AF54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72737577249F26F400F52F3C /* RegisterBio.swift in Sources */,
+				726F02D724A8536100B2FC37 /* ConfirmationView.swift in Sources */,
 				7273756B249E7DBF00F52F3C /* ContactsModel.swift in Sources */,
 				7229184124984B5500E1B9C2 /* Transfers.swift in Sources */,
+				726F02D524A8246100B2FC37 /* ImagePicker.swift in Sources */,
 				724A9D6C249078690020AF54 /* Playground.swift in Sources */,
 				724A9D7024907D740020AF54 /* SplashScreen1.swift in Sources */,
 				7229182F249548C500E1B9C2 /* Settings.swift in Sources */,
 				722918222493107D00E1B9C2 /* KeyboardHlpr.swift in Sources */,
+				72737575249F138E00F52F3C /* UserStore.swift in Sources */,
 				722918352496030300E1B9C2 /* Security.swift in Sources */,
 				724A9D7E2491842F0020AF54 /* Registration.swift in Sources */,
 				7273755D249DA36400F52F3C /* ContactDetail.swift in Sources */,
+				726F02D924A869E600B2FC37 /* WalletHome.swift in Sources */,
 				7229183124957FD800E1B9C2 /* IconModifiers.swift in Sources */,
 				722918432498667500E1B9C2 /* TransferTo.swift in Sources */,
 				72737566249DDFED00F52F3C /* RegistrationViewModel.swift in Sources */,
@@ -505,6 +622,7 @@
 				724A9D7B249148E20020AF54 /* LoginPage.swift in Sources */,
 				7229183B2496A21500E1B9C2 /* LanguageView.swift in Sources */,
 				722918202492E7C200E1B9C2 /* PlayHouse.swift in Sources */,
+				7282685B24A97D9400B57A80 /* AddCardView.swift in Sources */,
 				7229184D2499A41600E1B9C2 /* Notifications.swift in Sources */,
 				724A9D6A248F66350020AF54 /* TextFieldModifiers.swift in Sources */,
 				724A9D8024918AA60020AF54 /* OTPVerification.swift in Sources */,
@@ -517,6 +635,7 @@
 				7229182824947E1000E1B9C2 /* Menu.swift in Sources */,
 				7229182A2494933D00E1B9C2 /* ViewRouter.swift in Sources */,
 				722918262493FFFF00E1B9C2 /* Home.swift in Sources */,
+				726F02CC24A714C100B2FC37 /* LoginModel.swift in Sources */,
 				7273755F249DB97B00F52F3C /* History.swift in Sources */,
 				724A9D822491C7AA0020AF54 /* SetPassword.swift in Sources */,
 				724A9D37248F46BE0020AF54 /* PlanBok_SwiftUI.xcdatamodeld in Sources */,
@@ -527,6 +646,7 @@
 				724A9D842491CEF50020AF54 /* ForgotPassword.swift in Sources */,
 				724A9D34248F46BE0020AF54 /* SceneDelegate.swift in Sources */,
 				72291833249596BF00E1B9C2 /* MyProfile.swift in Sources */,
+				7282685D24AABE4100B57A80 /* CardsModel.swift in Sources */,
 				72737564249DDEC000F52F3C /* Profile.swift in Sources */,
 				724A9D872491DAA40020AF54 /* Constants.swift in Sources */,
 				7273756D249E91F900F52F3C /* CPG.swift in Sources */,
@@ -664,6 +784,7 @@
 		};
 		724A9D46248F46C00020AF54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97FE80567A5BEBFF0E4069AD /* Pods-PlanBok_SwiftUI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -685,6 +806,7 @@
 		};
 		724A9D47248F46C00020AF54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD1858766ADC91A18A9D3E20 /* Pods-PlanBok_SwiftUI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

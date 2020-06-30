@@ -16,8 +16,8 @@ struct ForgotPassword: View {
             VStack {
                 RegistrationTitle(title: "Forgot password", subtitle: "Please enter your email address set during registration")
             }
-            TextFldNIcons(placeHolder: "Enter your email", textValue: email, invalidField: true, label: "Email")
-            .offset(y: -screenHeight / 20)
+//            TextFldNIcons(placeHolder: "Enter your email", textValue: email, invalidField: true, label: "Email")
+//            .offset(y: -screenHeight / 20)
             //.offset(y: -20)
                 
             

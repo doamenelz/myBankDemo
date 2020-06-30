@@ -32,6 +32,43 @@ struct K {
 
 
 
+//MARK: - Firebase Constants
+let USERS_REF = "users"
+let NAME = "name"
+let CUSTOMER_ID = "customerID"
+let PHONE_NUMBER = "phoneNumber"
+let BVN = "bvn"
+let ADDRESS = "address"
+let AVATAR = "avatar"
+let PREFERRED_LANGUAGE = "preferredLanguage"
+let CARDS = "cards"
+let CUSTOMERS_REF = "customers"
+let CUSTOMER_AVATAR = "avatar"
+let CREATED_REF = "created"
+
+let CARDS_REF = "cards"
+
+
+struct Cards_Ref {
+    static let cardName = "name"
+    static let cardNumber = "cardNumber"
+    static let expiryDate = "expiryDate"
+    static let cvc = "cvc"
+    static let cardProvider = "cardProvider"
+    static let balance = "balance"
+    
+}
+
+var CURRENT_USER_EMAIL: String = ""
+var CURRENT_USER_UID: String = ""
+
+
+
+
+
+
+
+
 extension View {
 
     /// Navigate to a new view.

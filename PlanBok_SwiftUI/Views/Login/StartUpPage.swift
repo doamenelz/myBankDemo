@@ -13,10 +13,8 @@ struct StartUpPage: View {
     @Environment(\.viewController) private var viewControllerHolder: ViewControllerHolder
        private var viewController: UIViewController? {
         self.viewControllerHolder.value
+        
        }
-    
-    //@ObservedObject var viewRouter: ViewRouter
-    //@State var showLogin: Bool = true
     
     var body: some View {
         ZStack {
@@ -29,8 +27,7 @@ struct StartUpPage: View {
                             LoginPage()
                         }
                     }) {
-                        Text("Sign in").modifier(ButtonText())
-                            .modifier(PrimaryBtn())
+                        PrimaryButton(label: "Sign in")
                     }
                     
                     Button(action: {
@@ -39,13 +36,16 @@ struct StartUpPage: View {
                         }
                         
                     }) {
-                        Text("Sign up").modifier(ButtonText())
-                            .modifier(SecondaryBtn())
+                        SecondaryButton(label: "Sign Up")
                     }//.sheet(isPresented: $showLogin) {
                        // PlayHouse()
                     //}
                 }
             }
+            .padding(.horizontal, K.CustomUIConstraints.hPadding)
+        }.onAppear {
+            let p = CardsModel.getLast4Digits(digits: 1234567890)
+            print(p)
         }
         
         

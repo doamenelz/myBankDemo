@@ -151,7 +151,7 @@ struct ContactField: View {
                     Text(field.rawValue).modifier(TextFieldLbl())
                     TextField("Enter your \(placeHolder)", text: $cellValue).lineLimit(3)
                         .disabled(editEnabled ? false : true)
-                        .opacity(editEnabled && (field == .id || field == .bvn)  ? 0.5 : 1)
+                        .opacity(editEnabled && (field == .id || field == .email)  ? 0.5 : 1)
                         .modifier(H7(color: .white))
                     
                 }.padding(.trailing, 2.5)

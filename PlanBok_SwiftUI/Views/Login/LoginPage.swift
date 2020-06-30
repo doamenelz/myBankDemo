@@ -7,8 +7,16 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct LoginPage: View {
+    
+    @Environment(\.viewController) private var viewControllerHolder: ViewControllerHolder
+    private var viewController: UIViewController? {
+        self.viewControllerHolder.value
+    }
+
+    @EnvironmentObject var viewRouter: ViewRouter
     
     @State var email = ""
     @State var password = ""
@@ -16,6 +24,23 @@ struct LoginPage: View {
     @State var invalidPassword: Bool = false
     
     //@State var password: String = ""
+    
+    func loginUser () {
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if error != nil {
+                debugPrint(error?.localizedDescription ?? "")
+            } else {
+                self.viewController?.present(presentationStyle: .fullScreen) {
+                    WalletHome()
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+    
     var body: some View {
         ZStack {
             BackGround()
@@ -29,6 +54,7 @@ struct LoginPage: View {
 
                 VStack (spacing: 30) {
                     Button(action: {
+                        self.loginUser()
                         
                     }) {
                         Text("Sign in").modifier(ButtonText())
@@ -48,7 +74,7 @@ struct LoginPage: View {
                 }
                 .offset(y: 60)
 
-            }
+            }.padding(.horizontal, 38)
             
             
         }

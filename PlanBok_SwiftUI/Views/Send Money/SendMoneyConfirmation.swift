@@ -54,7 +54,7 @@ struct SendMoneyBottomModal: View {
                 Button(action: {
                     
                 }) {
-                    PButton(label: "Confirm")
+                    PrimaryButton(label: "Confirm")
                 }
                 Button(action: {
                     self.makePayment.toggle()
@@ -108,7 +108,7 @@ struct SendMoneyBottomModal: View {
                             self.makePayment.toggle()
                             
                         }) {
-                            PButton(label: "Done")
+                            PrimaryButton(label: "Done")
                         }
 
                     }

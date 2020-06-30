@@ -14,7 +14,7 @@ class ViewRouter: ObservableObject {
 
     let objectWillChange = PassthroughSubject<ViewRouter,Never>()
     
-    var currentPage: MenuScreens = .contacts {
+    var currentPage: MenuScreens = .wallet {
         didSet {
             withAnimation() {
               objectWillChange.send(self)

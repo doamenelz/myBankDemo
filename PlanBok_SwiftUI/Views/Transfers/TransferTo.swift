@@ -12,10 +12,10 @@ struct TransferTo: View {
     
     @State var originAccount: String = "VISA - 2344 ($ 1,200)"
     @State var invalidAmount: Bool = false
-    @State var amount: Int = 0
+    @State var amount: String = ""
     @State var narration: String = "mmkmkmkmkmkmknjbyb"
     
-    var pinA: Int = 0
+    @State var pinA: String = ""
     
     var body: some View {
         ZStack {
@@ -28,13 +28,13 @@ struct TransferTo: View {
                     VStack (spacing: 40){
                         TextDropdown(fieldValue: $originAccount, label: "Transfer from")
                         TextDropdown(fieldValue: $originAccount, label: "Transfer to")
-                        TextFldNIcons(placeHolder: "Enter an amount", textValue: "$ \(amount)", invalidField: invalidAmount, label: "Amount")
-                        TextFldNIcons(placeHolder: "Enter an amount", textValue: narration, invalidField: invalidAmount, label: "Notes")
-                        TextFldNIcons(placeHolder: "Transaction PIN", textValue: "\(pinA)", invalidField: invalidAmount, label: "Transaction PIN")
+                        TextFldNIcons(placeHolder: "Enter an amount", textValue: $amount, invalidField: invalidAmount, label: "Amount")
+                        TextFldNIcons(placeHolder: "Enter an amount", textValue: $narration, invalidField: invalidAmount, label: "Notes")
+                        TextFldNIcons(placeHolder: "Transaction PIN", textValue: $pinA, invalidField: invalidAmount, label: "Transaction PIN")
                         Button(action: {
                             
                         }) {
-                            PButton(label: "Continue")
+                            PrimaryButton(label: "Continue")
                         }
                         
                     }

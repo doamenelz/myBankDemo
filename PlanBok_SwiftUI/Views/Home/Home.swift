@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import Firebase
+import Contentful
 
 struct Home: View {
     
@@ -19,13 +21,12 @@ struct Home: View {
     
     
     let cards = CardM.all()
-    let transactions = Transaction.all()
+    let transactions = sampleTransactionStack
     
     var body: some View {
             ZStack {
                 BackGround()
-
-                
+                Text("gjgjgjgjg")
                 //MARK: - Header
                 ScrollView (showsIndicators: false) {
                     VStack (spacing: 15) {
@@ -35,7 +36,7 @@ struct Home: View {
                             Button(action: {
                                 self.viewRouter.currentPage = .menu
                             }) {
-                                Image("Add").foregroundColor(Color("p1"))//.renderingMode(.original)
+                                Image("Add").foregroundColor(Color("p1"))
                             }
                         }
                         
@@ -55,8 +56,9 @@ struct Home: View {
                                             Menu()
                                         }
                                     }) {
-                                        Card(isCheckBoxStyled: false, card: card)
-                                        .frame(width: screenWidth - 60)
+                                        Text("")
+//                                        Card(isCheckBoxStyled: false, card: card)
+//                                        .frame(width: screenWidth - 60)
                                     }
 //
                                 }
@@ -92,18 +94,19 @@ struct Home: View {
                             HStack {
                                 Text("Transactions").modifier(H3(color: .white))
                                 Spacer()
-                                
+
                                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
                                     SectionBtn(text: "History", icon: "list.bullet", iconType: .systemFont)
                                 }
-                                
+
                             }.padding(.horizontal, K.CustomUIConstraints.hPadding)
-                            
+
+
                             ForEach(self.transactions) { transaction in
                                 TransactioCell(transaction: transaction)
-                                
+
                             }.padding(.horizontal, K.CustomUIConstraints.hPadding)
-                            
+
                         }
                     }
                 }.offset(y: 70)
@@ -186,11 +189,16 @@ struct SecondaryNavigation: View {
     var body: some View {
         VStack {
             HStack {
+                Button(action: {
+                    self.viewController?.dismiss(animated: true, completion: nil)
+                }) {
                 Image(systemName: leftIcon.rawValue)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 20)
                     .foregroundColor(.white)
+                }
+                
                 Spacer()
                 Text(header).modifier(H4(color: .white))
                 Spacer()
@@ -198,6 +206,7 @@ struct SecondaryNavigation: View {
                     self.viewController?.present(presentationStyle: .fullScreen) {
                         Menu()
                     }
+                    
                 }) {
                     Image(rightIcon.rawValue)
                     .resizable()
@@ -353,6 +362,7 @@ enum TransactionCategory: String {
     case transport = "Transport"
 }
 
+
 extension Transaction {
     static func all() -> [Transaction] {
         return [
@@ -369,5 +379,17 @@ extension Transaction {
     }
     
 }
+
+let sampleTransactionStack = [
+    Transaction(image: "Uber", receipient: "Uber Trip", transactionDate: "16 Apr, 9:94am", amount: 12345, type: .credit, category: .transport),
+    Transaction(image: "BurgerKing", receipient: "Burger King purchase", transactionDate: "16 Apr, 9:94am", amount: -400, type: .debit, category: .food),
+    Transaction(image: "Zara", receipient: "Zara Purchase", transactionDate: "16 Apr, 9:94am", amount: 254, type: .credit, category: .shopping),
+    Transaction(image: "Nike", receipient: "Nike Store", transactionDate: "16 Apr, 9:94am", amount: 10, type: .credit, category: .shopping),
+    Transaction(image: "McDonald", receipient: "McDonald Fries", transactionDate: "16 Apr, 9:94am", amount: 134, type: .credit, category: .food),
+    Transaction(image: "KFC", receipient: "KFC Chicken Stash", transactionDate: "16 Apr, 9:94am", amount: -56, type: .debit, category: .food),
+    Transaction(image: "Uber", receipient: "Uber Trip", transactionDate: "16 Apr, 9:94am", amount: 5456, type: .credit, category: .transport),
+    Transaction(image: "Zara", receipient: "Zara Jacket", transactionDate: "16 Apr, 9:94am", amount: -2345, type: .debit, category: .shopping),
+    Transaction(image: "Uber", receipient: "Uber Trip", transactionDate: "16 Apr, 9:94am", amount: 10000, type: .credit, category: .transport)
+]
 
 

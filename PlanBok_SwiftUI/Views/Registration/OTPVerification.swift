@@ -21,9 +21,9 @@ struct OTPVerification: View {
         ZStack {
             BackGround()
             RegistrationTitle(title: "Verification", subtitle: "Please enter code that sent to your phone number in the form below. This code will expired in 01:00 minute.")
-            TextFldNIcons(placeHolder: "Enter your verification code", textValue: verificationCode.text, invalidField: true, label: "")
-                .keyboardType(.numberPad)
-                .offset(y: -screenHeight / 15)
+//            TextFldNIcons(placeHolder: "Enter your verification code", textValue: verificationCode.text, invalidField: true, label: "")
+//                .keyboardType(.numberPad)
+//                .offset(y: -screenHeight / 15)
             VStack (spacing: 10) {
                 Button(action: {
                     self.toSetPassword.toggle()
@@ -41,14 +41,7 @@ struct OTPVerification: View {
             }
             .offset(y: K.CustomUIConstraints.bottomButtonDistance)
         }
-            
-//        .gesture(DragGesture().updating($dragOffset, body: { (value, state, transaction) in
-//
-//            if(value.startLocation.x < 20 && value.translation.width > screenWidth / 2) {
-//                self.presentationMode.wrappedValue.dismiss()
-//            }
-//
-//        }))
+
 
     }
     

@@ -29,6 +29,8 @@ struct ButtonModifiers: View {
                     Text(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/).modifier(ButtonText()).frame(width: screenWidth - 38)
                 }.modifier(SecondaryBtn())
                 
+                SecondaryButton(label: "Secondary")
+                
             }
         }
 
@@ -42,7 +44,7 @@ struct ButtonModifiers_Previews: PreviewProvider {
     }
 }
 
-struct PButton: View {
+struct PrimaryButton: View {
     var label: String = "Button"
     var body: some View {
         HStack {
@@ -55,6 +57,28 @@ struct PButton: View {
         .cornerRadius(8)
     }
 }
+
+struct SecondaryButton: View {
+    var label: String = "Button"
+    var body: some View {
+        HStack {
+            Text(label)
+                .modifier(H4(color: .white))
+                .padding(.vertical, 20)
+        }
+        .frame(maxWidth: .infinity)
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(Color("p1"), lineWidth: 2)
+                //.frame(height: 60)
+                .frame(maxWidth: .infinity)
+        )
+            .background(Color.clear)
+            .cornerRadius(8)
+    }
+}
+
+
 
 struct PrimaryBtn: ViewModifier {
 
@@ -99,12 +123,7 @@ struct ButtonText: ViewModifier {
 
 }
 
-struct TFMod: ViewModifier {
-    func body(content: Content) -> some View {
-        content.font(.custom("Rubik-Regular", size: 20)).foregroundColor(Color(.white))//.frame(width: screenWidth - 76)
-    }
 
-}
 
 
 struct BackBtn: View {

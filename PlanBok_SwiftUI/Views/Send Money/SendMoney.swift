@@ -174,18 +174,19 @@ struct BeneficiaryModal: View {
             }
             
             VStack {
-               TextFldNIcons(placeHolder: "Enter your narration", textValue: textValue, invalidField: invalidField, label: "Notes")
+                Text("")
+//               TextFldNIcons(placeHolder: "Enter your narration", textValue: textValue, invalidField: invalidField, label: "Notes")
                  //.animation(Animation.easeInOut.delay(0.9))
             }
             
             //Button and Amount Stack
             HStack (alignment: .bottom, spacing: 20) {
-                TextFldNIcons(placeHolder: "Amount", textValue: textValue, invalidField: invalidField, label: "Amount")
+//                TextFldNIcons(placeHolder: "Amount", textValue: textValue, invalidField: invalidField, label: "Amount")
                 
                 Button(action: {
                     
                 }) {
-                    PButton(label: "Send")
+                    PrimaryButton(label: "Send")
                 }
 
             }

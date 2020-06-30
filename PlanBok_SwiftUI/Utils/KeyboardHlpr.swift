@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Combine
+import UIKit
 
 struct AdaptsToKeyboard: ViewModifier {
     @State var currentHeight: CGFloat = 0
@@ -55,6 +56,51 @@ struct DismissingKeyboard: ViewModifier {
                         .first?.windows
                         .filter({$0.isKeyWindow}).first
                 keyWindow?.endEditing(true)
+        }
+    }
+}
+
+
+//final class KeyboardResponder: ObservableObject {
+//    private var notificationCenter: NotificationCenter
+//    @Published private(set) var currentHeight: CGFloat = 0
+//
+//    init(center: NotificationCenter = .default) {
+//        notificationCenter = center
+//        notificationCenter.addObserver(self, selector: #selector(keyBoardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+//        notificationCenter.addObserver(self, selector: #selector(keyBoardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+//    }
+//
+//    deinit {
+//        notificationCenter.removeObserver(self)
+//    }
+//
+//    @objc func keyBoardWillShow(notification: Notification) {
+//        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+//            currentHeight = keyboardSize.height
+//        }
+//    }
+// func keyBoardWillHide(notification: Notification) {
+//        currentHeight = 0
+//    }
+//}
+
+struct Keyboard : ViewModifier {
+    @State var offset : CGFloat = 0
+    
+    func body (content: Content) -> some View {
+        content.padding(.bottom, offset).onAppear {
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { (notification) in
+                let value = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+                let height = value.height
+                
+                self.offset = height
+            }
+            
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { (notification) in
+                self.offset = 0
+                
+            }
         }
     }
 }
