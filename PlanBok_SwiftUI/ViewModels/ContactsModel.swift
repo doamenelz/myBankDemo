@@ -51,39 +51,7 @@ class ContactsStore: ObservableObject {
     }
 }
 
-class TransactionsStore: ObservableObject {
-    
-    @Published var transactions: [Transaction] = sampleTransactionStack
-    
-    init() {
-        getContacts(id: "transactions") { (transaction) in
-            transaction.forEach { (t) in
-                self.transactions.append(Transaction(
-                    image: "Avatar1",
-                    receipient: "RYRYRY",
-                    transactionDate: "",
-                    amount: 5678,
-                    type: .credit,
-                    category: .bills))
-                //print(t.fields["recipient"]["name"] as? String)
-                print(t.fields.linkedAsset(at: "recipient")?.url ?? URL(string: "https://nationalpostcom.files.wordpress.com/2019/09/portraitofaladyonfire_02.jpg?quality=80&strip=all&w=780")!)
-                
-            }
-            
-        }
-    }
-    
-}
 
-struct Transaction: Identifiable {
-    let id = UUID()
-    let image: String
-    let receipient: String
-    let transactionDate: String
-    let amount: Int
-    let type: TransactionType
-    let category: TransactionCategory
-}
 
 class ContactsViewModel: ObservableObject {
     

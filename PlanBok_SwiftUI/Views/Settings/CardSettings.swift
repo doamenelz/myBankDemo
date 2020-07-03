@@ -65,13 +65,11 @@ struct CardSettings_Previews: PreviewProvider {
 }
 
 
-struct Card: View {
+struct CardViewLarge: View {
     
     var isCheckBoxStyled: Bool
     
     let card: CustomerCard
-    
-    
     
     var body: some View {
         ZStack {
@@ -98,6 +96,7 @@ struct Card: View {
                     Text("\(card.cardNumber)").modifier(H3(color: .white))
                     
                 }
+                
                 HStack {
                     VStack (alignment: .leading, spacing: 5) {
                         Text(card.expiryDate).modifier(TextFieldLbl())

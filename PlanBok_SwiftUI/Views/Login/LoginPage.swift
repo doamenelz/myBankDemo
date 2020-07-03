@@ -18,8 +18,8 @@ struct LoginPage: View {
 
     @EnvironmentObject var viewRouter: ViewRouter
     
-    @State var email = ""
-    @State var password = ""
+    @State var email = "e.e@live.com"
+    @State var password = "123456"
     @State var invalidEmail: Bool = false
     @State var invalidPassword: Bool = false
     
@@ -30,6 +30,8 @@ struct LoginPage: View {
             if error != nil {
                 debugPrint(error?.localizedDescription ?? "")
             } else {
+                guard let email = Auth.auth().currentUser?.email else {return}
+                CURRENT_USER_EMAIL = email
                 self.viewController?.present(presentationStyle: .fullScreen) {
                     WalletHome()
                 }

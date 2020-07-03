@@ -245,25 +245,6 @@ extension CardM {
     }
 }
 
-struct ThisMonthSummaryCard: View {
-    
-    var type: SummaryType.RawValue
-    var amount: Int
-    
-    var body: some View {
-        HStack (alignment: .bottom, spacing: 10) {
-            Image(type).renderingMode(.original)
-                //.resizable()
-                .aspectRatio(contentMode: .fit)
-                //.frame(width: K.CustomUIConstraints.menuIconFrame)
-                
-            VStack (alignment: .leading, spacing: 2) {
-                Text(type).modifier(TextFieldLbl())
-                Text("$ \(amount)").modifier(H3(color: .white)).lineLimit(1).minimumScaleFactor(0.6)
-            }
-        }
-    }
-}
 
 struct SectionBtn: View {
     var text: String = "Overview"
@@ -349,47 +330,3 @@ struct TransactioCell: View {
         
     }
 }
-
-enum TransactionType {
-    case debit
-    case credit
-}
-
-enum TransactionCategory: String {
-    case shopping = "Shopping"
-    case food = "Food"
-    case bills = "Bills"
-    case transport = "Transport"
-}
-
-
-extension Transaction {
-    static func all() -> [Transaction] {
-        return [
-            Transaction(image: "Uber", receipient: "Uber Trip", transactionDate: "16 Apr, 9:94am", amount: 12345, type: .credit, category: .transport),
-            Transaction(image: "BurgerKing", receipient: "Burger King purchase", transactionDate: "16 Apr, 9:94am", amount: -400, type: .debit, category: .food),
-            Transaction(image: "Zara", receipient: "Zara Purchase", transactionDate: "16 Apr, 9:94am", amount: 254, type: .credit, category: .shopping),
-            Transaction(image: "Nike", receipient: "Nike Store", transactionDate: "16 Apr, 9:94am", amount: 10, type: .credit, category: .shopping),
-            Transaction(image: "McDonald", receipient: "McDonald Fries", transactionDate: "16 Apr, 9:94am", amount: 134, type: .credit, category: .food),
-            Transaction(image: "KFC", receipient: "KFC Chicken Stash", transactionDate: "16 Apr, 9:94am", amount: -56, type: .debit, category: .food),
-            Transaction(image: "Uber", receipient: "Uber Trip", transactionDate: "16 Apr, 9:94am", amount: 5456, type: .credit, category: .transport),
-            Transaction(image: "Zara", receipient: "Zara Jacket", transactionDate: "16 Apr, 9:94am", amount: -2345, type: .debit, category: .shopping),
-            Transaction(image: "Uber", receipient: "Uber Trip", transactionDate: "16 Apr, 9:94am", amount: 10000, type: .credit, category: .transport),
-        ]
-    }
-    
-}
-
-let sampleTransactionStack = [
-    Transaction(image: "Uber", receipient: "Uber Trip", transactionDate: "16 Apr, 9:94am", amount: 12345, type: .credit, category: .transport),
-    Transaction(image: "BurgerKing", receipient: "Burger King purchase", transactionDate: "16 Apr, 9:94am", amount: -400, type: .debit, category: .food),
-    Transaction(image: "Zara", receipient: "Zara Purchase", transactionDate: "16 Apr, 9:94am", amount: 254, type: .credit, category: .shopping),
-    Transaction(image: "Nike", receipient: "Nike Store", transactionDate: "16 Apr, 9:94am", amount: 10, type: .credit, category: .shopping),
-    Transaction(image: "McDonald", receipient: "McDonald Fries", transactionDate: "16 Apr, 9:94am", amount: 134, type: .credit, category: .food),
-    Transaction(image: "KFC", receipient: "KFC Chicken Stash", transactionDate: "16 Apr, 9:94am", amount: -56, type: .debit, category: .food),
-    Transaction(image: "Uber", receipient: "Uber Trip", transactionDate: "16 Apr, 9:94am", amount: 5456, type: .credit, category: .transport),
-    Transaction(image: "Zara", receipient: "Zara Jacket", transactionDate: "16 Apr, 9:94am", amount: -2345, type: .debit, category: .shopping),
-    Transaction(image: "Uber", receipient: "Uber Trip", transactionDate: "16 Apr, 9:94am", amount: 10000, type: .credit, category: .transport)
-]
-
-

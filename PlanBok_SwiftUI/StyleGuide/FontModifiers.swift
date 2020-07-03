@@ -105,6 +105,25 @@ struct H4: ViewModifier {
 
 }
 
+struct FormatTransaction: ViewModifier {
+    
+    //var transaction: CustomerTransaction
+    var color: Colors
+    
+    init(transaction: CustomerTransaction) {
+        if transaction.type == "credit" {
+            color = .credit
+        } else {
+            color = .white
+        }
+    }
+    
+    func body(content: Content) -> some View {
+        content.font(.custom("Rubik-Regular", size: 20)).foregroundColor(Color(color.rawValue))
+    }
+}
+
+
 struct H6: ViewModifier {
 
     var color: Colors

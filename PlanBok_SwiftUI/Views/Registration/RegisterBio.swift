@@ -6,6 +6,15 @@
 //  Copyright © 2020 QuetzalConsults. All rights reserved.
 //
 
+/*
+ filepath will have the users email appended to it.
+ 
+ if no email is provided, genericAvatar will be appended to it. 
+ 
+ 
+ 
+ */
+
 import SwiftUI
 import Firebase
 import FirebaseStorage
@@ -75,10 +84,11 @@ struct UserProfile: View {
         let metadata = StorageMetadata()
         //metadata.contentType = "image/jpeg"
         metadata.customMetadata = meta
+        metadata.contentType = "image/jpeg"
         
         let storage = Storage.storage()
         let storageRef = storage.reference()
-        let avatarRef = storageRef.child("\(currentUser!.email ?? "av").jpg")
+        let avatarRef = storageRef.child("\(currentUser!.email ?? "genericAvatar")")
         let imagesRef = storageRef.child("avatars/\(avatarRef)")
         
         imagesRef.putData(inputImage!.jpegData(compressionQuality: 0.35)!, metadata: metadata) { (metadata, error) in

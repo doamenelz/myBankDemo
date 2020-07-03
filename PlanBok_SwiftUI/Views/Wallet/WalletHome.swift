@@ -8,19 +8,22 @@
 
 import SwiftUI
 import Firebase
+import SDWebImageSwiftUI
 
 struct WalletHome: View {
-        @Environment(\.viewController) private var viewControllerHolder: ViewControllerHolder
-        private var viewController: UIViewController? {
-         self.viewControllerHolder.value
-        }
-        
-        @EnvironmentObject var viewRouter: ViewRouter
-        
-        
-        let cards = CardM.all()
-        let transactions = sampleTransactionStack
+    @Environment(\.viewController) private var viewControllerHolder: ViewControllerHolder
+    private var viewController: UIViewController? {
+        self.viewControllerHolder.value
+    }
+    
+    @EnvironmentObject var viewRouter: ViewRouter
+    
+    let cards = CardM.all()
     @ObservedObject var customerCards = CustomersCards()
+    @ObservedObject var customerTransactions = TransactionModel()
+    
+    @State var selectedCard: CustomerCard = sampleCard
+    
         
         var body: some View {
                 ZStack {
@@ -47,24 +50,24 @@ struct WalletHome: View {
 
                             //MARK:  - Card Carousel
                             ScrollView (.horizontal, showsIndicators: false) {
-                                HStack (spacing: 20) {
+                                HStack (spacing: 10) {
                                     ForEach(customerCards.customerCards) { card in
                                         
                                         Button(action: {
-                                            print("Menu Pressed")
-                                            //self.viewRouter.currentPage = .menu
+                                            self.selectedCard = card
+                                            self.viewController?.present(presentationStyle: .overCurrentContext) {
+                                                //History(customerCard: self.selectedCard)
+                                                History(customerCard: self.selectedCard, category: Array(self.customerTransactions.transactionCategories), customerTransactions: self.customerTransactions.customerTransactions, selectedCat: 0)
+                                            }
                                             
-//                                            self.viewController?.present(presentationStyle: .overCurrentContext) {
-//                                                Menu()
-//                                            }
                                         }) {
                                             Text("")
-                                            Card(isCheckBoxStyled: false, card: card)
+                                            CardViewLarge(isCheckBoxStyled: false, card: card)
                                             .frame(width: screenWidth - 60)
                                         }
     //
                                     }
-                                }.padding([.horizontal, .bottom], 30)
+                                }.padding([.horizontal, .bottom], 20)
                                 
                                 //offset(y: 40)
                             }
@@ -84,9 +87,9 @@ struct WalletHome: View {
                                 
                                 //Summary
                                 HStack  {
-                                    ThisMonthSummaryCard(type: SummaryType.expense.rawValue, amount: -120000)
+                                    ThisMonthSummaryCard(type: SummaryType.expense.rawValue, amount: Double(self.customerTransactions.totalExpense))
                                     Spacer()
-                                    ThisMonthSummaryCard(type: SummaryType.income.rawValue, amount: 12000).allowsTightening(true)
+                                    ThisMonthSummaryCard(type: SummaryType.income.rawValue, amount: Double(self.customerTransactions.totalIncome)).allowsTightening(true)
                                 }.padding(.horizontal, K.CustomUIConstraints.hPadding)
                             }.offset(y: -30)
                             
@@ -97,29 +100,28 @@ struct WalletHome: View {
                                     Text("Transactions").modifier(H3(color: .white))
                                     Spacer()
 
-                                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                                    Button(action: {
+                                        
+                                    }) {
                                         SectionBtn(text: "History", icon: "list.bullet", iconType: .systemFont)
                                     }
 
                                 }.padding(.horizontal, K.CustomUIConstraints.hPadding)
-
-
-                                ForEach(self.transactions) { transaction in
-                                    TransactioCell(transaction: transaction)
-
+                                
+                                ForEach(self.customerTransactions.customerTransactions) { transaction in
+                                    TransactionCell(transaction: transaction)
                                 }.padding(.horizontal, K.CustomUIConstraints.hPadding)
 
                             }
                         }
-                    }.offset(y: 70)
+                    }.offset(y: 70).onAppear{
+                        //TransactionModel.postBulkT()
+                    }
                     
                     //MARK: - Main Navigation
                     MainNavigation(header: .wallet)
                      
-                }.onAppear {
-                    //CustomersCards()
-            }
-
+                }
         }}
 
 struct WalletHome_Previews: PreviewProvider {
@@ -127,4 +129,6 @@ struct WalletHome_Previews: PreviewProvider {
         WalletHome()
     }
 }
+
+let sampleCard = CustomerCard(cardProvider: "visa", cardName: "Sample User", expiryDate: "12/12", cvc: "123", cardNumber: "1234", balance: 12345678)
 

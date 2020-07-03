@@ -80,6 +80,8 @@
 		72737577249F26F400F52F3C /* RegisterBio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72737576249F26F400F52F3C /* RegisterBio.swift */; };
 		7282685B24A97D9400B57A80 /* AddCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7282685A24A97D9400B57A80 /* AddCardView.swift */; };
 		7282685D24AABE4100B57A80 /* CardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7282685C24AABE4100B57A80 /* CardsModel.swift */; };
+		7282686024AAE0DE00B57A80 /* TransactionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7282685F24AAE0DE00B57A80 /* TransactionsModel.swift */; };
+		7282686224ABF95000B57A80 /* LabelHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7282686124ABF95000B57A80 /* LabelHelpers.swift */; };
 		B0943CC8A31CE5CFC5CDD72D /* Pods_PlanBok_SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F56D58E671048C65C36C8991 /* Pods_PlanBok_SwiftUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -158,6 +160,8 @@
 		72737576249F26F400F52F3C /* RegisterBio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterBio.swift; sourceTree = "<group>"; };
 		7282685A24A97D9400B57A80 /* AddCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardView.swift; sourceTree = "<group>"; };
 		7282685C24AABE4100B57A80 /* CardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsModel.swift; sourceTree = "<group>"; };
+		7282685F24AAE0DE00B57A80 /* TransactionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsModel.swift; sourceTree = "<group>"; };
+		7282686124ABF95000B57A80 /* LabelHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelHelpers.swift; sourceTree = "<group>"; };
 		97FE80567A5BEBFF0E4069AD /* Pods-PlanBok_SwiftUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlanBok_SwiftUI.debug.xcconfig"; path = "Target Support Files/Pods-PlanBok_SwiftUI/Pods-PlanBok_SwiftUI.debug.xcconfig"; sourceTree = "<group>"; };
 		CD1858766ADC91A18A9D3E20 /* Pods-PlanBok_SwiftUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlanBok_SwiftUI.release.xcconfig"; path = "Target Support Files/Pods-PlanBok_SwiftUI/Pods-PlanBok_SwiftUI.release.xcconfig"; sourceTree = "<group>"; };
 		F56D58E671048C65C36C8991 /* Pods_PlanBok_SwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlanBok_SwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,10 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				722918252493FFFF00E1B9C2 /* Home.swift */,
-				7273755E249DB97B00F52F3C /* History.swift */,
 				72737560249DC20800F52F3C /* Categories.swift */,
-				726F02D824A869E600B2FC37 /* WalletHome.swift */,
-				7282685A24A97D9400B57A80 /* AddCardView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -253,6 +254,16 @@
 				7229184C2499A41600E1B9C2 /* Notifications.swift */,
 			);
 			path = Notifications;
+			sourceTree = "<group>";
+		};
+		7231333924ACEF34006B9B7A /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				726F02D824A869E600B2FC37 /* WalletHome.swift */,
+				7282685A24A97D9400B57A80 /* AddCardView.swift */,
+				7273755E249DB97B00F52F3C /* History.swift */,
+			);
+			path = Wallet;
 			sourceTree = "<group>";
 		};
 		724A9D25248F46BE0020AF54 = {
@@ -346,19 +357,17 @@
 		724A9D6D24907D560020AF54 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7231333924ACEF34006B9B7A /* Wallet */,
 				724A9D772490B1D60020AF54 /* Login */,
 				724A9D7C249184040020AF54 /* Registration */,
-				722918242493FFEE00E1B9C2 /* Home */,
 				7229184B2499A3F200E1B9C2 /* Notifications */,
 				7229184A2499A3BB00E1B9C2 /* Contacts */,
 				7229183F24984B3C00E1B9C2 /* Transfers */,
 				7229183E24984B0E00E1B9C2 /* Send Money */,
 				7229182D249548A300E1B9C2 /* Settings */,
 				722918232493FDAF00E1B9C2 /* Cards */,
+				722918242493FFEE00E1B9C2 /* Home */,
 				724A9D6E24907D5E0020AF54 /* SplashScreens */,
-				7229182724947E0F00E1B9C2 /* Menu.swift */,
-				7229182B24949A1900E1B9C2 /* RootView.swift */,
-				7229183824969F1600E1B9C2 /* GenericViews.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -374,10 +383,10 @@
 		724A9D712490920D0020AF54 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7282685E24AAE0BB00B57A80 /* WalletModels */,
 				72737562249DDE9000F52F3C /* LoginRegModel */,
 				724A9D72249092310020AF54 /* SplashModel.swift */,
 				72737563249DDEC000F52F3C /* Profile.swift */,
-				7282685C24AABE4100B57A80 /* CardsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -420,9 +429,13 @@
 		724A9D852491DA720020AF54 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				7229182724947E0F00E1B9C2 /* Menu.swift */,
+				7229182B24949A1900E1B9C2 /* RootView.swift */,
+				7229183824969F1600E1B9C2 /* GenericViews.swift */,
 				724A9D862491DAA40020AF54 /* Constants.swift */,
 				722918212493107C00E1B9C2 /* KeyboardHlpr.swift */,
 				726F02D424A8246100B2FC37 /* ImagePicker.swift */,
+				7282686124ABF95000B57A80 /* LabelHelpers.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -450,6 +463,15 @@
 				72737574249F138E00F52F3C /* UserStore.swift */,
 			);
 			path = Stores;
+			sourceTree = "<group>";
+		};
+		7282685E24AAE0BB00B57A80 /* WalletModels */ = {
+			isa = PBXGroup;
+			children = (
+				7282685C24AABE4100B57A80 /* CardsModel.swift */,
+				7282685F24AAE0DE00B57A80 /* TransactionsModel.swift */,
+			);
+			path = WalletModels;
 			sourceTree = "<group>";
 		};
 		AA72D12AAD8522F0BBAB8032 /* Frameworks */ = {
@@ -600,6 +622,7 @@
 				726F02D724A8536100B2FC37 /* ConfirmationView.swift in Sources */,
 				7273756B249E7DBF00F52F3C /* ContactsModel.swift in Sources */,
 				7229184124984B5500E1B9C2 /* Transfers.swift in Sources */,
+				7282686024AAE0DE00B57A80 /* TransactionsModel.swift in Sources */,
 				726F02D524A8246100B2FC37 /* ImagePicker.swift in Sources */,
 				724A9D6C249078690020AF54 /* Playground.swift in Sources */,
 				724A9D7024907D740020AF54 /* SplashScreen1.swift in Sources */,
@@ -642,6 +665,7 @@
 				722918452499185A00E1B9C2 /* TransferPreview.swift in Sources */,
 				7229183D2496E4FF00E1B9C2 /* CardSettings.swift in Sources */,
 				724A9D39248F46BE0020AF54 /* ContentView.swift in Sources */,
+				7282686224ABF95000B57A80 /* LabelHelpers.swift in Sources */,
 				724A9D792490B1FB0020AF54 /* StartUpPage.swift in Sources */,
 				724A9D842491CEF50020AF54 /* ForgotPassword.swift in Sources */,
 				724A9D34248F46BE0020AF54 /* SceneDelegate.swift in Sources */,
@@ -800,7 +824,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.quetzalconsults.PlanBok-SwiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -822,7 +846,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.quetzalconsults.PlanBok-SwiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

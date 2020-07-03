@@ -22,6 +22,29 @@ class CardsModel {
         print(str[r])
         return String(str[r])
     }
+    
+    static func addCard (card: CustomerCard, vc: UIViewController) {
+        
+        
+        Firestore.firestore().collection(CUSTOMERS_REF).document(CURRENT_USER_EMAIL).collection(CARDS_REF).addDocument(data: [
+            Cards_Ref.cardName : card.cardName,
+            Cards_Ref.cardNumber: Int(card.cardNumber)!,
+            Cards_Ref.expiryDate : card.expiryDate,
+            Cards_Ref.cvc : Int(card.cvc)!,
+            Cards_Ref.cardProvider : card.cardProvider,
+            Cards_Ref.balance : card.balance,
+            CREATED_REF : FieldValue.serverTimestamp()
+            ], completion: { (error) in
+                if let error = error {
+                    debugPrint(error.localizedDescription)
+
+                } else {
+                    print("Cards was added")
+                    vc.dismiss(animated: true, completion: nil)
+                }
+        })
+        
+    }
 }
 
 class CustomersCards : ObservableObject {
@@ -43,12 +66,11 @@ class CustomersCards : ObservableObject {
             
             let newCard = CustomerCard(cardProvider: cardProvider, cardName: cardName, expiryDate: expiryDate, cvc: cvc, cardNumber: cardNumber, balance: balance)
             customerCards.append(newCard)
-            print(newCard)
         }
     }
     
     init() {
-        let cardsRef = Firestore.firestore().collection(CUSTOMERS_REF).document("edem.ekeng@live.com").collection(CARDS_REF)
+        let cardsRef = Firestore.firestore().collection(CUSTOMERS_REF).document(CURRENT_USER_EMAIL).collection(CARDS_REF)
 
         /*
         cardsRef.getDocuments { (querySnap, error) in

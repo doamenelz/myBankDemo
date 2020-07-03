@@ -119,7 +119,12 @@ struct CardOutlets: View {
             Spacer()
             
             Button(action: {
-                self.addCard()
+                let balance = CardsModel.generateFakeBalance()
+                let card = CustomerCard(cardProvider: self.selectedProvider.rawValue, cardName: self.name, expiryDate: self.expiryDate, cvc: self.cvc, cardNumber: self.cardNumber, balance: Int(balance))
+                //self.addCard()
+                
+                CardsModel.addCard(card: card, vc: self.viewController!)
+                print(card)
                 
             }) {
                 PrimaryButton(label: "Continue")
