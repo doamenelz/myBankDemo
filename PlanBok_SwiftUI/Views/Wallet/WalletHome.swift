@@ -11,6 +11,7 @@ import Firebase
 import SDWebImageSwiftUI
 
 struct WalletHome: View {
+    
     @Environment(\.viewController) private var viewControllerHolder: ViewControllerHolder
     private var viewController: UIViewController? {
         self.viewControllerHolder.value
@@ -21,6 +22,8 @@ struct WalletHome: View {
     let cards = CardM.all()
     @ObservedObject var customerCards = CustomersCards()
     @ObservedObject var customerTransactions = TransactionModel()
+    
+    //@ObservedObject var customerBen = CustomerContacts()
     
     @State var selectedCard: CustomerCard = sampleCard
     
@@ -115,6 +118,7 @@ struct WalletHome: View {
                             }
                         }
                     }.offset(y: 70).onAppear{
+                        //postBulkMerchants()
                         //TransactionModel.postBulkT()
                     }
                     
@@ -131,4 +135,5 @@ struct WalletHome_Previews: PreviewProvider {
 }
 
 let sampleCard = CustomerCard(cardProvider: "visa", cardName: "Sample User", expiryDate: "12/12", cvc: "123", cardNumber: "1234", balance: 12345678)
+let sampleCard1 = CustomerCard(cardProvider: "visa", cardName: "KLKLKLK", expiryDate: "12/12", cvc: "123", cardNumber: "1234", balance: 12345678)
 

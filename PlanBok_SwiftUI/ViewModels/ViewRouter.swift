@@ -14,7 +14,7 @@ class ViewRouter: ObservableObject {
 
     let objectWillChange = PassthroughSubject<ViewRouter,Never>()
     
-    var currentPage: MenuScreens = .startUp {
+    var currentPage: MenuScreens = .login {
         didSet {
             withAnimation() {
               objectWillChange.send(self)

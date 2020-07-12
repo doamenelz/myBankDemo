@@ -31,8 +31,6 @@ class TransactionModel : ObservableObject {
                 print("Error getting documents: \(err)")
             } else {
                 self.parsetransactions(snapshot: querySnap!)
-                //self.getCategories()
-                //self.getCategorioes()
                 
             }
         }
@@ -95,13 +93,12 @@ class TransactionModel : ObservableObject {
                     print(err.localizedDescription)
                 } else {
                     image = url ?? URL(string: DEFAULT_IMAGE)
-                    let transaction = CustomerTransaction(amount: NSNumber(value: amount), date: date, image: image!, type: type, narration: narration, sender: sender, category: category)
+                    let transaction = CustomerTransaction(amount: amount, date: date, image: image!, type: type, narration: narration, sender: sender, category: category, firebaseDate: d!)
                     self.customerTransactions.append(transaction)
                     if transaction.type == "credit" {
-                        self.totalIncome += Double(truncating: transaction.amount)
+                        self.totalIncome += transaction.amount
                         //self.totalIncome += amount
                     } else {
-                        //self.totalExpense = Int(truncating: transaction.amount) + self.totalExpense
                         self.totalExpense = Int(truncating: NSNumber(value: amount))
                     }
                     
@@ -138,7 +135,7 @@ class TransactionModel : ObservableObject {
         return color!
     }
     
-    static func postBulkT () {
+    func postBulkT () {
         
         let transactions = bulkT
         
@@ -166,7 +163,7 @@ class TransactionModel : ObservableObject {
     func getTotal (transactions: [CustomerTransaction]) -> Double {
         var total: Double = 0.0
         for tran in transactions {
-            total += Double(truncating: tran.amount)
+            total += tran.amount
         }
         
         return total
@@ -181,9 +178,63 @@ class TransactionModel : ObservableObject {
         }
         return transactionCategories
     }
-
+    
+    
+    ///Submits Transaction to Customers Transaction Collection
+     func submitTransaction (transaction: SubmitTransaction) -> Bool {
+        
+        var isSuccessful: Bool?
+        Firestore.firestore().collection(CUSTOMERS_REF).document(CURRENT_USER_EMAIL).collection(TRANSACTIONS_REF).addDocument(data: [
+            Transaction_Ref.amount : transaction.amount,
+            Transaction_Ref.recipient : transaction.recipientId,
+            Transaction_Ref.narration : transaction.narration,
+            Transaction_Ref.type : transaction.transactionType,
+            Transaction_Ref.category : transaction.transactionCategory,
+            Transaction_Ref.recipientName : transaction.recipientName,
+            
+            "date" : FieldValue.serverTimestamp()
+            ], completion: { (error) in
+                if let err = error {
+                    debugPrint(err.localizedDescription)
+                    isSuccessful = false
+                } else {
+                    print("Transaction was posted Successfully")
+                    isSuccessful = true
+                }
+                
+        }
+        )
+        
+        return isSuccessful!
+    }
+    
+    static func checkSufficientBalance (balance: Double, amountToTransfer: Double) -> Bool {
+        var hasSufficientBalance: Bool?
+        
+        if balance <= amountToTransfer {
+            hasSufficientBalance = false
+        } else {
+         hasSufficientBalance = true
+        }
+        
+        return hasSufficientBalance!
+    }
+    
+    
+    
     
 }
+
+struct SubmitTransaction {
+    let amount: Double
+    let recipientId: String
+    let narration: String
+    let transactionType: String
+    let transactionCategory: String
+    let recipientName: String
+}
+
+let sampleSendMoney = SubmitTransaction(amount: 0.0, recipientId: "email", narration: "This is a sample narration", transactionType: "Debit", transactionCategory: "Transfers", recipientName: "John Doe")
 
 extension Double {
     func roundTo(places:Int) -> Double {
@@ -204,8 +255,7 @@ struct ThisMonthSummaryCard: View {
             
             VStack (alignment: .leading, spacing: 2) {
                 Text(type).modifier(TextFieldLbl())
-//                Text("$ \(String(format: "%.2f", amount))").modifier(H4(color: .white)).lineLimit(1).minimumScaleFactor(0.6)
-                Text("$ \(amount)").modifier(H4(color: .white)).lineLimit(1).minimumScaleFactor(0.6)
+                Text(formatNumber(number: amount)).modifier(H4(color: .white)).lineLimit(1).minimumScaleFactor(0.6)
                 
             }
         }
@@ -214,10 +264,20 @@ struct ThisMonthSummaryCard: View {
 
 
 let bulkT = [
-    TransactionT(image: "Uber.pdf", recipient: "Self", date: "16 Apr, 9:94am", amount: 12345, type: "credit", sender: "e.ekeng", narration: "Uber Trip"),
-    TransactionT(image: "BurgerKing.pdf", recipient: "edem.ekeng@live.com", date: "16 Apr, 9:94am", amount: -400, type: "credit", sender: "self", narration: "Burger King Vouchers"),
-    TransactionT(image: "Zara.pdf", recipient: "Self", date: "16 Apr, 9:94am", amount: 12345, type: "credit", sender: "e.ekeng", narration: "Uber Trip"),
-    TransactionT(image: "Nike.pdf", recipient: "edem.ekeng@live.com", date: "16 Apr, 9:94am", amount: -400, type: "credit", sender: "self", narration: "Nike Airforce Ones Purchase"),
+    TransactionT(image: "Uber.pdf", recipient: "Self", date: "16 Apr, 9:94am", amount: 1545, type: "credit", sender: "e.ekeng", narration: "Uber Trip"),
+    TransactionT(image: "BurgerKing.pdf", recipient: "edem.ekeng@live.com", date: "16 Apr, 9:94am", amount: 400, type: "credit", sender: "self", narration: "Burger King Vouchers"),
+    TransactionT(image: "Zara.pdf", recipient: "Self", date: "16 Apr, 9:94am", amount: 2300, type: "credit", sender: "e.ekeng", narration: "Uber Trip"),
+    TransactionT(image: "Nike.pdf", recipient: "edem.ekeng@live.com", date: "16 Apr, 9:94am", amount: 4000, type: "credit", sender: "self", narration: "Nike Airforce Ones Purchase"),
+    TransactionT(image: "KFC.pdf", recipient: "edem.ekeng@live.com", date: "16 Apr, 9:94am", amount: 900, type: "debit", sender: "self", narration: "Family Meals"),
+    TransactionT(image: "Nike.pdf", recipient: "edem.ekeng@live.com", date: "16 Apr, 9:94am", amount: 340, type: "debit", sender: "self", narration: "Sneakers"),
+    TransactionT(image: "McDonald.pdf", recipient: "edem.ekeng@live.com", date: "16 Apr, 9:94am", amount: 1200, type: "credit", sender: "self", narration: "McNuggets"),
+    TransactionT(image: "Burger King.pdf", recipient: "edem.ekeng@live.com", date: "16 Apr, 9:94am", amount: 400, type: "debit", sender: "self", narration: "Pizza"),
+    TransactionT(image: "Dominos.pdf", recipient: "edem.ekeng@live.com", date: "16 Apr, 9:94am", amount: 20, type: "credit", sender: "self", narration: "Dominos Mega"),
+    TransactionT(image: "Nike.pdf", recipient: "edem.ekeng@live.com", date: "16 Apr, 9:94am", amount: 100, type: "debit", sender: "self", narration: "Nike Airforce Ones Purchase"),
+    TransactionT(image: "Uber.pdf", recipient: "edem.ekeng@live.com", date: "16 Apr, 9:94am", amount: 560, type: "credit", sender: "self", narration: "Clinic Trip"),
+    TransactionT(image: "Nike.pdf", recipient: "edem.ekeng@live.com", date: "16 Apr, 9:94am", amount: 9500, type: "credit", sender: "self", narration: "Nike Slim Stripe"),
+    TransactionT(image: "Zara.pdf", recipient: "edem.ekeng@live.com", date: "16 Apr, 9:94am", amount: 453, type: "debit", sender: "self", narration: "High Tops"),
+    TransactionT(image: "Zara.pdf", recipient: "edem.ekeng@live.com", date: "16 Apr, 9:94am", amount: 110, type: "credit", sender: "self", narration: "Leather Jackets"),
 ]
 
 enum TransactionType {
@@ -230,6 +290,7 @@ enum TransactionCategory: String {
     case food = "Food"
     case bills = "Bills"
     case transport = "Transport"
+    case fashion = "Fashion"
 }
 
 extension Transaction {
@@ -248,6 +309,20 @@ extension Transaction {
     }
     
 }
+
+func formatNumber (number: Double) -> String {
+    let numF = NumberFormatter()
+    numF.numberStyle = .currency
+    
+    numF.usesGroupingSeparator = true
+    numF.locale = Locale.current
+    
+    let newNum = numF.string(from: NSNumber(value: number))
+    
+    return newNum!
+    
+}
+
 
 let sampleTransactionStack = [
     Transaction(image: "Uber", receipient: "Uber Trip", transactionDate: "16 Apr, 9:94am", amount: 12345, type: .credit, category: .transport),
@@ -326,13 +401,14 @@ struct TransactionT: Identifiable {
 
 struct CustomerTransaction: Identifiable {
     let id = UUID()
-    let amount: NSNumber
+    let amount: Double
     let date: String
     let image: URL
     let type: String
     let narration: String
     let sender: String
     let category: String
+    let firebaseDate: Date
 }
 
 struct TransactionCell : View {
@@ -360,13 +436,13 @@ struct TransactionCell : View {
                 Spacer()
                 
                 if transaction.type == "credit" {
-                    Text("$\(transaction.amount)")
+                    Text(formatNumber(number: transaction.amount))
                     .modifier(FormatTransaction(transaction: transaction))
                     .lineLimit(1)
                     .minimumScaleFactor(0.6)
                     .allowsTightening(true)
                 } else {
-                    Text("- $\(transaction.amount)")
+                    Text("- \(formatNumber(number: transaction.amount))")
                     .modifier(FormatTransaction(transaction: transaction))
                     .lineLimit(1)
                     .minimumScaleFactor(0.6)
@@ -389,6 +465,6 @@ struct TransactionCell : View {
 }
 
 
-let sampleCustomerTransaction = CustomerTransaction(amount: 12345, date: "10pm June", image: SAMPLE_IMAGE_URL!, type: "visa", narration: "This is a test transaction", sender: "MeSelf", category: "shopping")
+let sampleCustomerTransaction = CustomerTransaction(amount: 12345, date: "10pm June", image: SAMPLE_IMAGE_URL!, type: "visa", narration: "This is a test transaction", sender: "MeSelf", category: "Shopping", firebaseDate: Date())
 
 let sampleURL = SAMPLE_IMAGE_URL

@@ -17,7 +17,9 @@ struct Menu: View {
         self.viewControllerHolder.value
     }
     
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    //@Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    //@EnvironmentObject var viewRouter: ViewRouter
     
     let menus = MenuData.all()
     var name: String = "Camilla Lindstrom"
@@ -28,7 +30,6 @@ struct Menu: View {
             VStack {
                 HStack (spacing: 20) {
                     Button(action: {
-                        //self.viewRouter.currentPage = .wallet
                         
                     }) {
                         Avatar()
@@ -39,10 +40,7 @@ struct Menu: View {
                     }
                     Spacer()
                     Button(action: {
-                        //self.viewRouter.currentPage = .wallet
-                        self.presentationMode.wrappedValue.dismiss()
-                        
-                        
+                        self.viewController?.dismiss(animated: true, completion: nil)
                     }) {
                         Image(icon)
                             .resizable()
@@ -56,7 +54,21 @@ struct Menu: View {
                 Spacer()
                 VStack {
                     ForEach(menus) { menu in
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                        Button(action: {
+                            switch menu.menuScreen {
+                            case .wallet:
+                                self.viewController?.present(presentationStyle: .fullScreen) {
+                                    WalletHome()
+                                }
+                            case .sendMoney:
+                                
+                                self.viewController?.present(presentationStyle: .fullScreen) {
+                                    SendMoney()
+                                }
+                            default:
+                                self.viewController?.dismiss(animated: true, completion: nil)
+                            }
+                        }) {
                             MenuCell(menu: menu)
                         }
                         
@@ -67,7 +79,6 @@ struct Menu: View {
             }.padding([.bottom,.top], 50)
             
         }.background(BlurView(style: .dark)).edgesIgnoringSafeArea(.all)
-        //.blur(radius: 1)
     }
 }
 
@@ -134,6 +145,8 @@ enum MenuScreens: String {
     case login = "Login"
     case signUp = "Registration"
     case startUp = "StartUpPage"
+    case confirmationPage = "Confirmation"
+    case transactionPreview = "Tpreview"
 }
 
 struct BlurView: UIViewRepresentable {

@@ -61,6 +61,8 @@
 		724A9D842491CEF50020AF54 /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D832491CEF50020AF54 /* ForgotPassword.swift */; };
 		724A9D872491DAA40020AF54 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D862491DAA40020AF54 /* Constants.swift */; };
 		724A9D892491DF280020AF54 /* Completion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724A9D882491DF280020AF54 /* Completion.swift */; };
+		726CED6A24BBD38D00245112 /* SendMoneyRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726CED6924BBD38D00245112 /* SendMoneyRoot.swift */; };
+		726CED6C24BBD3F300245112 /* PGtest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726CED6B24BBD3F300245112 /* PGtest.swift */; };
 		726F02CC24A714C100B2FC37 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726F02CB24A714C100B2FC37 /* LoginModel.swift */; };
 		726F02D524A8246100B2FC37 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726F02D424A8246100B2FC37 /* ImagePicker.swift */; };
 		726F02D724A8536100B2FC37 /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726F02D624A8536100B2FC37 /* ConfirmationView.swift */; };
@@ -78,6 +80,8 @@
 		72737572249F0B5500F52F3C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72737571249F0B5500F52F3C /* GoogleService-Info.plist */; };
 		72737575249F138E00F52F3C /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72737574249F138E00F52F3C /* UserStore.swift */; };
 		72737577249F26F400F52F3C /* RegisterBio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72737576249F26F400F52F3C /* RegisterBio.swift */; };
+		728264B324B4D798002C934A /* AddContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728264B224B4D798002C934A /* AddContact.swift */; };
+		728264B624B53A82002C934A /* SendMoneyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728264B524B53A82002C934A /* SendMoneyModel.swift */; };
 		7282685B24A97D9400B57A80 /* AddCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7282685A24A97D9400B57A80 /* AddCardView.swift */; };
 		7282685D24AABE4100B57A80 /* CardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7282685C24AABE4100B57A80 /* CardsModel.swift */; };
 		7282686024AAE0DE00B57A80 /* TransactionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7282685F24AAE0DE00B57A80 /* TransactionsModel.swift */; };
@@ -143,6 +147,8 @@
 		724A9D832491CEF50020AF54 /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
 		724A9D862491DAA40020AF54 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		724A9D882491DF280020AF54 /* Completion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Completion.swift; sourceTree = "<group>"; };
+		726CED6924BBD38D00245112 /* SendMoneyRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMoneyRoot.swift; sourceTree = "<group>"; };
+		726CED6B24BBD3F300245112 /* PGtest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PGtest.swift; sourceTree = "<group>"; };
 		726F02CB24A714C100B2FC37 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		726F02D424A8246100B2FC37 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		726F02D624A8536100B2FC37 /* ConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
@@ -158,6 +164,8 @@
 		72737571249F0B5500F52F3C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		72737574249F138E00F52F3C /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		72737576249F26F400F52F3C /* RegisterBio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterBio.swift; sourceTree = "<group>"; };
+		728264B224B4D798002C934A /* AddContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContact.swift; sourceTree = "<group>"; };
+		728264B524B53A82002C934A /* SendMoneyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMoneyModel.swift; sourceTree = "<group>"; };
 		7282685A24A97D9400B57A80 /* AddCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardView.swift; sourceTree = "<group>"; };
 		7282685C24AABE4100B57A80 /* CardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsModel.swift; sourceTree = "<group>"; };
 		7282685F24AAE0DE00B57A80 /* TransactionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsModel.swift; sourceTree = "<group>"; };
@@ -224,6 +232,9 @@
 			children = (
 				722918462499284900E1B9C2 /* SendMoney.swift */,
 				722918482499883A00E1B9C2 /* SendMoneyConfirmation.swift */,
+				728264B224B4D798002C934A /* AddContact.swift */,
+				726CED6924BBD38D00245112 /* SendMoneyRoot.swift */,
+				726CED6B24BBD3F300245112 /* PGtest.swift */,
 			);
 			path = "Send Money";
 			sourceTree = "<group>";
@@ -357,13 +368,13 @@
 		724A9D6D24907D560020AF54 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7231333924ACEF34006B9B7A /* Wallet */,
 				724A9D772490B1D60020AF54 /* Login */,
+				7231333924ACEF34006B9B7A /* Wallet */,
+				7229183E24984B0E00E1B9C2 /* Send Money */,
 				724A9D7C249184040020AF54 /* Registration */,
 				7229184B2499A3F200E1B9C2 /* Notifications */,
 				7229184A2499A3BB00E1B9C2 /* Contacts */,
 				7229183F24984B3C00E1B9C2 /* Transfers */,
-				7229183E24984B0E00E1B9C2 /* Send Money */,
 				7229182D249548A300E1B9C2 /* Settings */,
 				722918232493FDAF00E1B9C2 /* Cards */,
 				722918242493FFEE00E1B9C2 /* Home */,
@@ -383,10 +394,11 @@
 		724A9D712490920D0020AF54 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				728264B724B53D26002C934A /* ContactModels */,
+				728264B424B53A54002C934A /* SendMoneyModels */,
 				7282685E24AAE0BB00B57A80 /* WalletModels */,
 				72737562249DDE9000F52F3C /* LoginRegModel */,
 				724A9D72249092310020AF54 /* SplashModel.swift */,
-				72737563249DDEC000F52F3C /* Profile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -463,6 +475,22 @@
 				72737574249F138E00F52F3C /* UserStore.swift */,
 			);
 			path = Stores;
+			sourceTree = "<group>";
+		};
+		728264B424B53A54002C934A /* SendMoneyModels */ = {
+			isa = PBXGroup;
+			children = (
+				728264B524B53A82002C934A /* SendMoneyModel.swift */,
+			);
+			path = SendMoneyModels;
+			sourceTree = "<group>";
+		};
+		728264B724B53D26002C934A /* ContactModels */ = {
+			isa = PBXGroup;
+			children = (
+				72737563249DDEC000F52F3C /* Profile.swift */,
+			);
+			path = ContactModels;
 			sourceTree = "<group>";
 		};
 		7282685E24AAE0BB00B57A80 /* WalletModels */ = {
@@ -628,12 +656,14 @@
 				724A9D7024907D740020AF54 /* SplashScreen1.swift in Sources */,
 				7229182F249548C500E1B9C2 /* Settings.swift in Sources */,
 				722918222493107D00E1B9C2 /* KeyboardHlpr.swift in Sources */,
+				728264B624B53A82002C934A /* SendMoneyModel.swift in Sources */,
 				72737575249F138E00F52F3C /* UserStore.swift in Sources */,
 				722918352496030300E1B9C2 /* Security.swift in Sources */,
 				724A9D7E2491842F0020AF54 /* Registration.swift in Sources */,
 				7273755D249DA36400F52F3C /* ContactDetail.swift in Sources */,
 				726F02D924A869E600B2FC37 /* WalletHome.swift in Sources */,
 				7229183124957FD800E1B9C2 /* IconModifiers.swift in Sources */,
+				726CED6C24BBD3F300245112 /* PGtest.swift in Sources */,
 				722918432498667500E1B9C2 /* TransferTo.swift in Sources */,
 				72737566249DDFED00F52F3C /* RegistrationViewModel.swift in Sources */,
 				722918492499883A00E1B9C2 /* SendMoneyConfirmation.swift in Sources */,
@@ -653,6 +683,7 @@
 				724A9D892491DF280020AF54 /* Completion.swift in Sources */,
 				724A9D73249092310020AF54 /* SplashModel.swift in Sources */,
 				72737561249DC20800F52F3C /* Categories.swift in Sources */,
+				726CED6A24BBD38D00245112 /* SendMoneyRoot.swift in Sources */,
 				7273755B249D410300F52F3C /* Contacts.swift in Sources */,
 				7229183924969F1600E1B9C2 /* GenericViews.swift in Sources */,
 				7229182824947E1000E1B9C2 /* Menu.swift in Sources */,
@@ -670,6 +701,7 @@
 				724A9D842491CEF50020AF54 /* ForgotPassword.swift in Sources */,
 				724A9D34248F46BE0020AF54 /* SceneDelegate.swift in Sources */,
 				72291833249596BF00E1B9C2 /* MyProfile.swift in Sources */,
+				728264B324B4D798002C934A /* AddContact.swift in Sources */,
 				7282685D24AABE4100B57A80 /* CardsModel.swift in Sources */,
 				72737564249DDEC000F52F3C /* Profile.swift in Sources */,
 				724A9D872491DAA40020AF54 /* Constants.swift in Sources */,

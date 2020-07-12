@@ -18,8 +18,6 @@ struct ContactDetail: View {
     @ObservedObject var transactionStore = TransactionsStore()
     @State var contact: Contact
     
-    //@ObservedObject var selectedContact = ContactsViewModel()
-    
     let transactions = ContactTransactions.all()
     var body: some View {
         ZStack {
@@ -29,28 +27,26 @@ struct ContactDetail: View {
             }
             
             //MARK: - Body Stack
-            
             VStack {
                 ScrollView {
                     VStack (spacing: 20) {
                         VStack {
                             ContactHeader(contact: contact)
                             ProfileFieldTemplate(field: .phoneNumber, image: ProfileFieldTemplate.getIcon(profileFieldType: .phoneNumber), cellValue: $phonenumber, editEnabled: $edit, canEdit: edit)
-
+                            
                             ContactField(field: .phoneNumber, cellValue: $phonenumber, editEnabled: $edit)
                         }
-                                                
+                        
                         VStack (alignment: .leading, spacing: 10) {
                             Text("Transactions").modifier(H3(color: .white))
                             //ScrollView {
-                                VStack  {
-                                    ForEach(transactions) { transaction in
-                                        TransCell(transaction: transaction)
-                                    }
+                            VStack  {
+                                ForEach(transactions) { transaction in
+                                    TransCell(transaction: transaction)
                                 }
-                            //}
+                            }
                         }.padding(.horizontal, K.CustomUIConstraints.hPadding)
-                     //Spacer()
+                        //Spacer()
                     }
                 }
                 
@@ -131,7 +127,6 @@ extension ContactTransactions {
         ]
     }
 }
-
 
 struct ContactField: View {
     

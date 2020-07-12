@@ -155,9 +155,11 @@ struct MainNavigation: View {
                 Text(header.rawValue).modifier(H4(color: .white))
                 Spacer()
                 Button(action: {
-                    self.viewController?.present(presentationStyle: .fullScreen) {
+                    self.viewController?.present(presentationStyle: .overCurrentContext) {
                         Menu()
                     }
+                    
+                    //self.viewRouter.currentPage = .menu
                 }) {
                     Image(rightIcon.rawValue)
                     .resizable()

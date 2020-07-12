@@ -77,6 +77,24 @@ struct DateFormatterHelper {
         
         return formattedDate
     }
+    
+    static func formatFBDateFull (serverDate: Date) -> String {
+       let dateFormat = DateFormatter()
+        
+        dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+        
+        let parsedPickerDate = dateFormat.string(from: serverDate)
+        
+        let tempD = dateFormat.date(from: parsedPickerDate)
+        
+        let presentedDateFormatter = DateFormatter()
+        
+        presentedDateFormatter.dateFormat = "E, d MMM"
+        
+        let formattedDate = presentedDateFormatter.string(from: tempD!)
+        
+        return formattedDate
+    }
 
     
     

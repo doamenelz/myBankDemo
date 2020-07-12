@@ -28,7 +28,6 @@ struct RootView: View {
     var body: some View {
         VStack {
             
-            
             if viewRouter.currentPage == .wallet {
                 WalletHome()
             } else if viewRouter.currentPage == .menu {
@@ -40,6 +39,12 @@ struct RootView: View {
                 StartUpPage()
             } else if viewRouter.currentPage == .login {
                 LoginPage()
+            } else if viewRouter.currentPage == .sendMoney {
+                SendMoney()
+            } else if viewRouter.currentPage == .confirmationPage {
+                ConfirmationView()
+            } else if viewRouter.currentPage == .transactionPreview {
+                SendMoneyConfirmation()
             }
         }
     }

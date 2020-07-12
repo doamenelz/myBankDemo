@@ -23,8 +23,6 @@ struct LoginPage: View {
     @State var invalidEmail: Bool = false
     @State var invalidPassword: Bool = false
     
-    //@State var password: String = ""
-    
     func loginUser () {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if error != nil {
@@ -32,16 +30,16 @@ struct LoginPage: View {
             } else {
                 guard let email = Auth.auth().currentUser?.email else {return}
                 CURRENT_USER_EMAIL = email
-                self.viewController?.present(presentationStyle: .fullScreen) {
-                    WalletHome()
-                }
+//                self.viewController?.present(presentationStyle: .fullScreen) {
+//                    WalletHome()
+//                }
+                self.viewRouter.currentPage = .wallet
                 
             }
             
         }
         
     }
-    
     
     var body: some View {
         ZStack {
@@ -85,6 +83,7 @@ struct LoginPage: View {
     
 
     }
+    
 }
 
 struct LoginPage_Previews: PreviewProvider {

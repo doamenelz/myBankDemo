@@ -7,32 +7,57 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct SendMoney: View {
     
-    let cards = CardM.all()
-    var beneficiaries = BeneficiaryList.all()
-    @State var recipient = BeneficiaryList(name: "", avatar: "")
+    @Environment(\.viewController) private var viewControllerHolder: ViewControllerHolder
+    private var viewController: UIViewController? {
+        self.viewControllerHolder.value
+    }
+    
+    @EnvironmentObject var viewRouter: ViewRouter
+    
+    @State var recipient: Contact = sampleContact
     
     @State var amount = ""
     @State var invalidField: Bool = false
     
     @State var showModal: Bool = false
     @State var bottomState = CGSize.zero
-    @State var isSelectedCard: Bool = false
-    @State var selectedCard: String = ""
+    @State var isSelectedCard: Bool = true
+    @State var deselected: Bool = false
+    @State var selectedCard: CustomerCard = sampleCard
+    
+    @State var goToAddContact: Bool = false
+    
+    @State var id: Int = 0
+    
+    @State var uud: UUID = UUID()
+    
+    @State var avatarUUD: UUID = UUID()
+    
+    @State var balance: String = ""
+    
+    //@State var selectedCard: CardM = sampleCard
+    
+    @ObservedObject var customerCards = CustomersCards()
+    
+    @ObservedObject var beneficiaries = CustomerContacts()
     
     var body: some View {
         ZStack {
             BackGround(wallpaper: .Floater1)
             
             //MARK: - Body Stack
+            
             VStack {
                 VStack (spacing: 30) {
                     
+                    //Total Customer Balance
                     VStack (spacing: 10) {
                         Text("Total Balance").modifier(H6(color: .grey))
-                        Text("$12,354.56").modifier(H2(color: .white))
+                        Text(balance).modifier(H2(color: .white))
                     }
                     
                     //MARK:- Card Stack
@@ -41,37 +66,55 @@ struct SendMoney: View {
                             .padding(.leading, K.CustomUIConstraints.hPadding)
                         ScrollView (.horizontal, showsIndicators: false) {
                             HStack (spacing: 20) {
-                                ForEach (cards) { card in
+                                ForEach (customerCards.customerCards) { card in
                                     Button(action: {
-                                        self.selectedCard = card.name
-                                        print("Selected Card is \(self.selectedCard)")
-                                        self.isSelectedCard.toggle()
+                                        self.uud = card.id
+                                        self.selectedCard = card
                                         
                                     }) {
-                                        CardSmall(isSelected: self.$isSelectedCard, card: card).frame(width: screenWidth / 1.5)
+                                        if self.uud == card.id {
+                                            CardSmall(isSelected: self.$isSelectedCard, card: card).frame(width: screenWidth / 1.5)
+                                        } else {
+                                            CardSmall(isSelected: self.$deselected, card: card).frame(width: screenWidth / 1.5)
+                                        }
+                                        
                                     }
                                 }
+                                
                             }.padding(.horizontal, K.CustomUIConstraints.hPadding)
                         }
                     }.padding(.top, 15)
+                    .onAppear {
+                       self.uud = self.customerCards.customerCards[0].id
+                    }
+
                     
                     //MARK: - Recipients
                     VStack (alignment: .leading) {
                         Text("Send to").modifier(H4(color: .white)).padding(.leading, K.CustomUIConstraints.hPadding)
+                        
                         ScrollView (.horizontal, showsIndicators: false) {
-                            HStack (spacing: 15) {
+                            HStack (alignment: .center, spacing: 5) {
                                 
-                                ForEach(beneficiaries) { i in
+                                ForEach(beneficiaries.customerContacts) { i in
                                     Button(action: {
                                         self.recipient = i
+                                        self.avatarUUD = i.id
                                         if !self.showModal {
                                             self.showModal.toggle()
                                         }
                                     }) {
-                                        BeneficiaryAvatar(image: i.avatar)
+                                        if self.avatarUUD == i.id {
+                                            BeneficiaryAvatar(image: i.avatar, isSelected: self.$isSelectedCard)
+                                        } else {
+                                            BeneficiaryAvatar(image: i.avatar, isSelected: self.$deselected)
+                                        }
+                                        
                                     }
                                 }
+                                
                                 Button(action: {
+                                    self.goToAddContact.toggle()
                                     
                                 }) {
                                     IconsWrapped_Custom(icon: .arrowFromTop)
@@ -82,43 +125,48 @@ struct SendMoney: View {
                     }
                     Spacer()
                     
+                }.sheet(isPresented: $goToAddContact) {
+                    AddContact()
                 }
                 
+            }.onAppear {
+                let bal = CardsModel.getTotalBalance(cards: self.customerCards.customerCards)
+                self.balance = formatNumber(number: bal)
             }
             .padding(.top, K.CustomUIConstraints.topPadding)
+            
             
             //MARK: - Bottom Modal
                 VStack {
                     Spacer()
-                    BeneficiaryModal(invalidField: $invalidField, recipient: $recipient, textValue: amount)
+                    BeneficiaryModal(vc: viewController, invalidField: $invalidField, recipient: $recipient, textValue: $amount, toggleModal: $showModal)
                         .offset(y: showModal ? 0 : screenHeight / 2)
                         
                         .offset(y: self.bottomState.height)
                         .animation(.timingCurve(0.2, 0.8, 0.2, 1, duration: 0.8))
                         .animation(Animation.easeInOut.delay(0.6))
-                .gesture(DragGesture().onChanged { value in
-                        self.bottomState = value.translation
-                        if self.bottomState.height < -5 {
-                            self.bottomState.height = -5
+                        .gesture(DragGesture().onChanged { value in
+                            self.bottomState = value.translation
+                            if self.bottomState.height < -5 {
+                                self.bottomState.height = -5
+                            }
+                            
                         }
-
-                    }
-                .onEnded { value in
-                    if self.bottomState.height > 200 {
-                        self.showModal = false
-                    }
-                    if (self.bottomState.height < -50 && !self.showModal) {
-                        self.bottomState.height = -50
-                        //self.showModal = true
-                    } else {
-                        self.bottomState = .zero
-                        //self.showModal = false
-                    }
-                    }
-                    
-                )
+                        .onEnded { value in
+                            if self.bottomState.height > 200 {
+                                self.showModal = false
+                            }
+                            if (self.bottomState.height < -50 && !self.showModal) {
+                                self.bottomState.height = -50
+                                //self.showModal = true
+                            } else {
+                                self.bottomState = .zero
+                                //self.showModal = false
+                            }
+                            }
+                            
+                    )
                 }.edgesIgnoringSafeArea(.all)
-
 
             MainNavigation(header: .sendMoney)
         }
@@ -136,54 +184,118 @@ struct SendMoney_Previews: PreviewProvider {
 }
 
 struct BeneficiaryAvatar: View {
-    var image: String
+    var image: URL
+    //var imageUrl: String
+    
+    @Binding var isSelected: Bool
+    
     var body: some View {
-        Image(image).renderingMode(.original)
-        .resizable()
-            .aspectRatio(contentMode: .fill)
-            .frame(width: 60, height: 60)
-            .cornerRadius(8)
+        VStack {
+            WebImage(url: image)
+                .renderingMode(.original)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 60, height: 60)
+                .cornerRadius(8)
+            //if isSelected {
+            CheckBox(shapeStyle: .rounded).opacity(isSelected ? 1.0 : 0.0)
+                .offset(y: -20)
+            //}
+            
+        }
+    }
+    
+}
+
+struct BenModalAvatar : View {
+    
+    var image: URL
+    //var imageUrl: String
+    
+    @Binding var isSelected: Bool
+    
+    var body: some View {
+        VStack {
+            WebImage(url: image)
+                .renderingMode(.original)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 60, height: 60)
+                .cornerRadius(8)
+        }
     }
 }
 
 struct BeneficiaryModal: View {
     
+    var vc: UIViewController?
+    
     @Binding var invalidField: Bool
     
-    @Binding var recipient: BeneficiaryList
+    @State var amuntMissing: Bool = false
     
-    var textValue: String
+    @Binding var recipient: Contact
+    
+    @Binding var textValue: String
+    
+    @State var narration: String = ""
+    
+    @State var isSelected: Bool = false
+    
+    @State var amount: Double = 0
+    
+    @Binding var toggleModal: Bool
     //var label: String
     var body: some View {
         
         VStack {
-            //Selected Stack
             Color.gray
                 .frame(width: 70, height: 5).opacity(0.3)
                 .cornerRadius(2)
                 
-            HStack {
+            HStack (alignment: .center) {
                 VStack (alignment: .leading) {
                     Text("Selected").modifier(TextFieldLbl())
                     Text(recipient.name).modifier(H6(color: .white))
                     .animation(Animation.easeInOut.delay(0.6))
                 }
                 Spacer()
-                BeneficiaryAvatar(image: recipient.avatar)
+                BenModalAvatar(image: recipient.avatar, isSelected: $isSelected)
                 .animation(Animation.easeInOut.delay(0.6))
             }
             
             VStack {
                 Text("")
-//               TextFldNIcons(placeHolder: "Enter your narration", textValue: textValue, invalidField: invalidField, label: "Notes")
-                 //.animation(Animation.easeInOut.delay(0.9))
+                TextFldNIcons(placeHolder: "Enter your notes", textValue: $narration, invalidField: invalidField, label: "Notes (Optional)")
+                 .animation(Animation.easeInOut.delay(0.9))
             }
             
             //Button and Amount Stack
             HStack (alignment: .bottom, spacing: 20) {
-//                TextFldNIcons(placeHolder: "Amount", textValue: textValue, invalidField: invalidField, label: "Amount")
+                TextFldNIcons(placeHolder: "Amount", textValue: $textValue, invalidField: amuntMissing, label: "Amount")
                 
                 Button(action: {
+                    
+                    self.amount = Double(self.textValue) ?? 0.0
+                    
+                    if self.amount <= 0.0 {
+                        self.amuntMissing = true
+                        
+                    } else {
+                        self.amuntMissing = false
+                        let transactionInfo = SubmitTransaction(amount: self.amount, recipientId: self.recipient.email, narration: self.narration, transactionType: "debit", transactionCategory: "Transfers", recipientName: self.recipient.name)
+                        self.toggleModal = false
+                        self.vc?.present(presentationStyle: .fullScreen) {
+                            
+                            SendMoneyConfirmation(transactionInfo: transactionInfo, recipientImage: self.recipient.avatar)
+                            
+                            
+                        }
+                        
+                        
+                    }
+                    
+                    
                     
                 }) {
                     PrimaryButton(label: "Send")
@@ -194,7 +306,6 @@ struct BeneficiaryModal: View {
         }
         .padding([.bottom, .horizontal], 25)
         .padding(.top, 10)
-        //.padding(.bottom, 40)
         .background(Color(Colors.tb6.rawValue))
         .cornerRadius(20)
         
@@ -219,3 +330,56 @@ extension BeneficiaryList {
         ]
     }
 }
+
+struct CardSmall: View {
+
+@Binding var isSelected: Bool
+
+var card: CustomerCard = sampleCard
+
+var body: some View {
+    ZStack {
+        VStack (alignment: .leading, spacing: 10) {
+            //Headers
+            HStack (alignment: .top) {
+                VStack (alignment: .leading, spacing: 5) {
+                    Text("Balance").modifier(TextFieldLbl())
+                    Text("$ \(card.balance)").modifier(H4(color: .white))
+                }
+                Spacer()
+                
+                if isSelected {
+                   CheckBox(shapeStyle: .rounded)
+                }
+            }
+            
+            HStack {
+                Text("****").modifier(H6(color: .white))
+                Spacer()
+                Text("****").modifier(H6(color: .white))
+                Spacer()
+                Text("****").modifier(H6(color: .white))
+                Spacer()
+                Text(card.cardNumber).modifier(H6(color: .white))
+                
+            }
+            
+            HStack {
+                VStack (alignment: .leading, spacing: 5) {
+                    Text(card.expiryDate).modifier(TextFieldLbl())
+                    Text(card.cardName).modifier(TextFieldLbl())
+                }
+                Spacer()
+                Image(card.cardProvider).renderingMode(.original)
+            }
+            
+        }.padding(.all, 20)
+            //.padding(.vertical, 20)
+    }
+    .background(LinearGradient(gradient: Gradient(colors: [Color(Colors.tb6.rawValue), Color(Colors.tb4.rawValue).opacity(0.6)]), startPoint: .top, endPoint: .bottom))
+    .shadow(radius: 20)
+    .cornerRadius(10)
+}}
+
+
+

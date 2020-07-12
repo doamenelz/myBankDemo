@@ -37,17 +37,11 @@ struct StartUpPage: View {
                         
                     }) {
                         SecondaryButton(label: "Sign Up")
-                    }//.sheet(isPresented: $showLogin) {
-                       // PlayHouse()
-                    //}
+                    }
                 }
             }
             .padding(.horizontal, K.CustomUIConstraints.hPadding)
-        }.onAppear {
-            let p = CardsModel.getLast4Digits(digits: 1234567890)
-            print(p)
         }
-        
         
     }
 }

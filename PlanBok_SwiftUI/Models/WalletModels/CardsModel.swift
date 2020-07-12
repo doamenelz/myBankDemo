@@ -45,6 +45,18 @@ class CardsModel {
         })
         
     }
+    
+    static func getTotalBalance (cards: [CustomerCard]) -> Double {
+       
+        var totalBalance: Double = 0.0
+        
+        for card in cards {
+            totalBalance += Double(card.balance)
+        }
+        
+        return totalBalance
+    }
+    
 }
 
 class CustomersCards : ObservableObject {

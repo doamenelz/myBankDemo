@@ -119,7 +119,7 @@ struct FormatTransaction: ViewModifier {
     }
     
     func body(content: Content) -> some View {
-        content.font(.custom("Rubik-Regular", size: 20)).foregroundColor(Color(color.rawValue))
+        content.font(.custom("Rubik-Regular", size: 16)).foregroundColor(Color(color.rawValue))
     }
 }
 

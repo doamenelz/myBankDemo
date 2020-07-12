@@ -46,8 +46,11 @@ let CUSTOMERS_REF = "customers"
 let CUSTOMER_AVATAR = "avatar"
 let CREATED_REF = "created"
 
+
 let CARDS_REF = "cards"
 let TRANSACTIONS_REF = "transactions"
+let BENEFICIARIES = "beneficiaries"
+let MERCHANT_REF = "merchants"
 
 
 struct Cards_Ref {
@@ -70,6 +73,7 @@ struct Transaction_Ref {
     static let narration = "narration"
     static let sender = "sender"
     static let category = "category"
+    static let recipientName = "recipientName"
 }
 
 var CURRENT_USER_EMAIL: String = ""
@@ -77,6 +81,8 @@ var CURRENT_USER_UID: String = ""
 
 let IMAGE_PATH = "gs://mybank-b47ca.appspot.com/avatars/gs:/mybank-b47ca.appspot.com/"
 let DEFAULT_IMAGE = "https://nationalpostcom.files.wordpress.com/2019/09/portraitofaladyonfire_02.jpg?quality=80&strip=all&w=780"
+
+let MERCHANT_AVATAR_PATH = "gs://mybank-b47ca.appspot.com/vendors/"
 
 let SAMPLE_IMAGE_URL = URL(string: DEFAULT_IMAGE)
 

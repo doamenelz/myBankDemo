@@ -239,6 +239,28 @@ struct CheckBox: View {
     }
 }
 
+
+struct CheckBoxSelector: View {
+    
+    @Binding var isSelected: Bool
+    
+    var body: some View {
+        VStack {
+            Image(systemName: "checkmark.square.fill")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .foregroundColor(Color( isSelected ? Colors.p1.rawValue : Colors.grey.rawValue))
+                //.accentColor(.white)
+                .background(Color(isSelected ? .white : .clear))
+                .frame(width: 24, height: 24)
+                .clipShape(RoundedRectangle(cornerRadius: 4, style: .continuous))
+        }
+        
+        
+    }
+}
+
+
 enum CheckBoxType {
     case rounded
     case square

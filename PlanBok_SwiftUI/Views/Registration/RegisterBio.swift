@@ -142,6 +142,7 @@ struct UserProfile: View {
                                 Firestore.firestore().collection(CUSTOMERS_REF).document(email).setData([
                                     NAME : self.customerName,
                                     PHONE_NUMBER : self.customerPhoneNumber,
+                                    "customerID": self.customerID,
                                     "signUpDate" : FieldValue.serverTimestamp()
                                     ], completion: { (error) in
                                         if let error = error {
